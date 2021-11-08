@@ -86,6 +86,58 @@
       <p class="masthead-subheading font-weight-light mb-0">SMHLRI</p>
 
     </div>
+
+    <style>
+      .flip-box {
+        background-color: transparent;
+        width: 200px;
+        height: 150px;
+        /* border: 1px solid #f1f1f1; */
+        perspective: 1000px;
+      }
+
+      .flip-box-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
+
+      .flip-box:hover .flip-box-inner {
+        transform: rotateY(180deg);
+      }
+
+      .flip-box-front,
+      .flip-box-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+      }
+
+      .flip-box-front {
+        background-color: #555;
+        color: black;
+      }
+
+      .flip-box-back {
+        background-color: #555;
+        color: black;
+        transform: rotateY(180deg);
+      }
+
+      .row>.column {
+        padding: 8px;
+      }
+
+      .column {
+        float: left;
+        width: 25%;
+      }
+    </style>
+
   </header>
 
   <!-- HOVER Portfolio Section -->
@@ -307,6 +359,111 @@
 
     </div>
   </section>
+
+  <!-- Flip Pictures -->
+  <section id="skills" class="skills-section bg-light">
+    <br>
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">
+        <i>
+          <h1 class="mx-auto my-0 text-uppercase"></h1>
+        </i>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <!-- Picture 1/2 -->
+    <div>
+      <div class="row">
+        <span style="margin-left:50px;">
+          <div class="column">
+            <div class="flip-box">
+              <div class="flip-box-inner">
+                <div class="flip-box-front">
+                  <img class="" src="img/portfolio/images1.jfif" alt="portfolio" width="300" height="300">
+                </div>
+                <div class="flip-box-back">
+                  <img class="grayscale" src="img/portfolio/images2.jfif" alt="portfolio" width="300" height="300">
+                </div>
+              </div>
+            </div>
+          </div>
+        </span>
+
+        <!-- Picture 3/4 -->
+        <span style="margin-left:130px;">
+          <div class="column">
+            <div class="flip-box">
+              <div class="flip-box-inner">
+                <div class="flip-box-front">
+                  <img class="" src="img/portfolio/images2.jfif" alt="portfolio" width="300"
+                    height="300">
+                </div>
+                <div class="flip-box-back">
+                  <img class="grayscale" src="img/portfolio/images1.jfif" alt="portfolio" width="300"
+                    height="300">
+                </div>
+              </div>
+            </div>
+          </div>
+        </span>
+
+        <!-- Picture 5/6 -->
+        <span style="margin-left:130px;">
+          <div class="column">
+            <div class="flip-box">
+              <div class="flip-box-inner">
+                <div class="flip-box-front">
+                  <img class="" src="img/portfolio/images3.jfif" alt="portfolio" width="300" height="300">
+                </div>
+                <div class="flip-box-back">
+                  <img class="grayscale" src="img/portfolio/images4.jfif" alt="portfolio" width="300" height="300">
+                </div>
+              </div>
+            </div>
+          </div>
+        </span>
+
+        <!-- Picture 7/8 -->
+        <span style="margin-left:130px;">
+          <div class="column">
+            <div class="flip-box">
+              <div class="flip-box-inner">
+                <div class="flip-box-front">
+                  <img class="" src="img/portfolio/images4.jfif" alt="portfolio" width="300" height="300">
+                </div>
+                <div class="flip-box-back">
+                  <img class="grayscale" src="img/portfolio/images3.jfif" alt="portfolio" width="300" height="300">
+                </div>
+              </div>
+            </div>
+          </div>
+        </span>
+
+        <!-- Picture 9/10 -->
+        <span style="margin-left:130px;">
+          <div class="column">
+            <div class="flip-box">
+              <div class="flip-box-inner">
+                <div class="flip-box-front">
+                  <img class="" src="img/portfolio/images5.png" alt="portfolio" width="300" height="300">
+                </div>
+                <div class="flip-box-back">
+                  <img class="grayscale" src="img/portfolio/images6.jfif" alt="portfolio" width="300" height="300">
+                </div>
+              </div>
+            </div>
+          </div>
+        </span>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+  </section>
+
 
   <!-- Contact Section -->
   <section class="page-section" id="contact">
