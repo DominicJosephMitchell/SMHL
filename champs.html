@@ -1,269 +1,4 @@
-<style>
-    div {
-        width: 800px;
-        height: 650px;
-        background-color: red;
-        background: url('img/portfolio/Champs 2020.jpg')center center;
-        background-repeat: no-repeat;
-        background-size: 700px 550px;
-        position: relative;
-        -webkit-animation-name: example;
-
-        /* Safari 4.0 - 8.0 */
-        -webkit-animation-duration: 10s;
-
-        /* Safari 4.0 - 8.0 */
-        -webkit-animation-iteration-count: infinite;
-
-        /* Safari 4.0 - 8.0 */
-        animation-name: example;
-        animation-duration: 10s;
-        animation-iteration-count: infinite;
-    }
-
-    /* Safari 4.0 - 8.0 */
-
-    @-webkit-keyframes example {
-        0% {
-            background-color: red;
-            left: 0px;
-            right: 0px;
-        }
-
-        25% {
-            background-color: yellow;
-            left: 1000px;
-            right: 0px;
-        }
-
-        50% {
-            background-color: blue;
-            left: 1000px;
-            right: 1000px;
-        }
-
-        75% {
-            background-color: green;
-            left: 0px;
-            right: 1000px;
-        }
-
-        100% {
-            background-color: red;
-            left: 0px;
-            right: 0px;
-        }
-    }
-
-    /* Standard syntax */
-
-    @keyframes example {
-        0% {
-            background-color: red;
-            left: 0px;
-            right: 0px;
-        }
-
-        25% {
-            background-color: yellow;
-            left: 1000px;
-            right: 0px;
-        }
-
-        50% {
-            background-color: blue;
-            left: 1000px;
-            right: 1000px;
-        }
-
-        75% {
-            background-color: green;
-            left: 0px;
-            right: 1000px;
-        }
-
-        100% {
-            background-color: red;
-            left: 0px;
-            right: 0px;
-        }
-    }
-</style>
-
-    <!-- <header>
-        <h1>
-            <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-                <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html">Smithfield Men's
-                    Hockey League</a>
-                    <h1><span style="margin-left:300px; column-rule: gold;">CHAMPS</span></h1>
-                    <h1><span style="margin-left:104px; column-rule: gold;">2020</span></h1>
-            </nav>
-        </h1>    
-    </header> -->
-
-
-        <!-- <style>
-        html {
-            background: black;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-    </style>
-
-
-    <canvas id="Matrix"></canvas>
-    <script src="./index.js"></script>
-
-    <script>
-        const canvas = document.getElementById('Matrix');
-        const context = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
-        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const nums = '0123456789';
-
-        const alphabet = katakana + latin + nums;
-
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-
-        const rainDrops = [];
-
-        for (let x = 0; x < columns; x++) {
-            rainDrops[x] = 1;
-        }
-
-        const draw = () => {
-            context.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            context.fillRect(0, 0, canvas.width, canvas.height);
-
-            context.fillStyle = '#0F0';
-            context.font = fontSize + 'px monospace';
-
-            for (let i = 0; i < rainDrops.length; i++) {
-                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-                context.fillText(text, i * fontSize, rainDrops[i] * fontSize);
-
-                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    rainDrops[i] = 0;
-                }
-                rainDrops[i]++;
-            }
-        };
-
-        setInterval(draw, 30);
-    </script>     -->
-
-    <section class="masthead bg-primary text-white text-center">
-        <div class="container d-flex align-items-center flex-column">
-            <style>
-                div {
-                    width: 800px;
-                    height: 650px;
-                    background-color: red;
-                    background: url('img/portfolio/Champs 2020.jpg')center center;
-                    background-repeat: no-repeat;
-                    background-size: 700px 550px;
-                    position: relative;
-                    -webkit-animation-name: example;
-
-                    /* Safari 4.0 - 8.0 */
-                    -webkit-animation-duration: 10s;
-
-                    /* Safari 4.0 - 8.0 */
-                    -webkit-animation-iteration-count: infinite;
-
-                    /* Safari 4.0 - 8.0 */
-                    animation-name: example;
-                    animation-duration: 10s;
-                    animation-iteration-count: infinite;
-                }
-
-                /* Safari 4.0 - 8.0 */
-
-                @-webkit-keyframes example {
-                    0% {
-                        background-color: red;
-                        left: 0px;
-                        right: 0px;
-                    }
-
-                    25% {
-                        background-color: yellow;
-                        left: 1000px;
-                        right: 0px;
-                    }
-
-                    50% {
-                        background-color: blue;
-                        left: 1000px;
-                        right: 1000px;
-                    }
-
-                    75% {
-                        background-color: green;
-                        left: 0px;
-                        right: 1000px;
-                    }
-
-                    100% {
-                        background-color: red;
-                        left: 0px;
-                        right: 0px;
-                    }
-                }
-
-                /* Standard syntax */
-
-                @keyframes example {
-                    0% {
-                        background-color: red;
-                        left: 0px;
-                        right: 0px;
-                    }
-
-                    25% {
-                        background-color: yellow;
-                        left: 1000px;
-                        right: 0px;
-                    }
-
-                    50% {
-                        background-color: blue;
-                        left: 1000px;
-                        right: 1000px;
-                    }
-
-                    75% {
-                        background-color: green;
-                        left: 0px;
-                        right: 1000px;
-                    }
-
-                    100% {
-                        background-color: red;
-                        left: 0px;
-                        right: 0px;
-                    }
-                }
-            </style>
-        </div>
-    </section>
-
-
-
-
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -336,6 +71,30 @@
     }
 </style>
 
+<style>
+    .img {
+        position: absolute;
+        z-index: 1;
+    }
+
+    #container {
+        display: inline-block;
+        width: 320px;
+        height: 480px;
+        margin: 0 auto;
+        background: black;
+        position: relative;
+        border: 5px solid black;
+        border-radius: 10px;
+        box-shadow: 0 5px 50px #333
+    }
+
+    #Matrix {
+        position: relative;
+        z-index: 20;
+    }
+</style>
+
 <body id="page-top">
 
     <!-- Navigation -->
@@ -392,31 +151,125 @@
     </nav>
 
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    </head>
+    <!-- MATRIX-->
+    <div id="container">
+        <img class='img' src="img/portfolio/Champs 2020.jpg" style="width:2500px;height:1200px;" />
+        <canvas id="Matrix"></canvas>
+    </div>
 
-    <body>
-        <h1 class="page-section-heading text-center text-uppercase text-secondary mb-0">CHAMPIONS</h1>
+    <script src="./index.js"></script>
 
-        <br>
-        <br>
-        <br>
-        <br>
-    <!-- Masthead -->
-    <header class="masthead bg-primary text-white text-center">
-        <div class="container d-flex align-items-center flex-column">
-            <h1 class="page-section-heading text-center text-uppercase text-secondary mb-0">CHAMPIONS</h1>
+    <script>
+        const canvas = document.getElementById('Matrix');
+        const context = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+
+        const alphabet = katakana + latin + nums;
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const rainDrops = [];
+
+        for (let x = 0; x < columns; x++) {
+            rainDrops[x] = 1;
+        }
+
+        const draw = () => {
+            context.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            context.fillStyle = '#0F0';
+            context.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                context.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        };
+
+        setInterval(draw, 30);
+    </script>
+</body>
+
+<!-- Footer -->
+<footer class="footer text-center">
+    <div class="container">
+        <div class="row">
+
+            <!-- Footer Location -->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <h4 class="text-uppercase mb-4">Location</h4>
+                <p class="lead mb-0">101 Pleaseant View Ave
+                    <br>Smithfield RI 02917
+                    <br>(401)233-1051
+                </p>
+            </div>
+
+            <!-- Footer Social Icons -->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <h4 class="text-uppercase mb-4">Around the Web</h4>
+                <a class="btn btn-outline-light btn-social mx-1" href="#">
+                    <i class="fab fa-fw fa-facebook-f"></i>
+                </a>
+                <a class="btn btn-outline-light btn-social mx-1" href="#">
+                    <i class="fab fa-fw fa-twitter"></i>
+                </a>
+                <a class="btn btn-outline-light btn-social mx-1" href="#">
+                    <i class="fab fa-fw fa-linkedin-in"></i>
+                </a>
+                <a class="btn btn-outline-light btn-social mx-1" href="#">
+                    <i class="fab fa-fw fa-dribbble"></i>
+                </a>
+            </div>
+
+            <!-- Footer About Text -->
+            <div class="col-lg-4">
+                <h4 class="text-uppercase mb-4">About SMHL</h4>
+                <p class="lead mb-0">See Contact Field to send request
+                    <!-- <a href="http://startbootstrap.com">Start Bootstrap</a>.</p> -->
+            </div>
+
         </div>
+    </div>
+</footer>
 
-        <style>
-            div {
+<!-- Copyright Section -->
+<section class="copyright py-4 text-center text-white">
+    <div class="container">
+        <small>Copyright &copy; SMHL 2021 / djm</small>
+    </div>
+</section>
+
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
+
+</html>
+
+
+
+
+
+
+<!-- <section class="masthead bg-primary text-white text-center"> -->
+<!-- <div class="container d-flex align-items-center flex-column"> -->
+<style>
+    /* div {
                 width: 800px;
                 height: 650px;
                 background-color: red;
@@ -424,23 +277,57 @@
                 background-repeat: no-repeat;
                 background-size: 700px 550px;
                 position: relative;
-                -webkit-animation-name: example;
+                -webkit-animation-name: example; */
 
-                /* Safari 4.0 - 8.0 */
-                -webkit-animation-duration: 10s;
+    /* Safari 4.0 - 8.0 */
+    /* -webkit-animation-duration: 10s; */
 
-                /* Safari 4.0 - 8.0 */
-                -webkit-animation-iteration-count: infinite;
+    /* Safari 4.0 - 8.0 */
+    /* -webkit-animation-iteration-count: infinite; */
 
-                /* Safari 4.0 - 8.0 */
-                animation-name: example;
+    /* Safari 4.0 - 8.0 */
+    /* animation-name: example;
                 animation-duration: 10s;
                 animation-iteration-count: infinite;
-            }
+            } */
 
-            /* Safari 4.0 - 8.0 */
+    /* Safari 4.0 - 8.0 */
 
-            @-webkit-keyframes example {
+    /* @-webkit-keyframes example {
+                0% {
+                    background-color: red;
+                    left: 0px;
+                    right: 0px;
+                }
+
+                25% {
+                    background-color: yellow;
+                    left: 1000px;
+                    right: 0px;
+                }
+
+                50% {
+                    background-color: blue;
+                    left: 1000px;
+                    right: 1000px;
+                }
+
+                75% {
+                    background-color: green;
+                    left: 0px;
+                    right: 1000px;
+                }
+
+                100% {
+                    background-color: red;
+                    left: 0px;
+                    right: 0px;
+                }
+            } */
+
+    /* Standard syntax */
+
+    /* @keyframes example {
                 0% {
                     background-color: red;
                     left: 0px;
@@ -471,100 +358,6 @@
                     right: 0px;
                 }
             }
-
-            /* Standard syntax */
-
-            @keyframes example {
-                0% {
-                    background-color: red;
-                    left: 0px;
-                    right: 0px;
-                }
-
-                25% {
-                    background-color: yellow;
-                    left: 1000px;
-                    right: 0px;
-                }
-
-                50% {
-                    background-color: blue;
-                    left: 1000px;
-                    right: 1000px;
-                }
-
-                75% {
-                    background-color: green;
-                    left: 0px;
-                    right: 1000px;
-                }
-
-                100% {
-                    background-color: red;
-                    left: 0px;
-                    right: 0px;
-                }
-            }
-        </style>
-
-    </header>
-
-    </body>
-
-    <!-- Footer -->
-    <footer class="footer text-center">
-        <div class="container">
-            <div class="row">
-
-                <!-- Footer Location -->
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h4 class="text-uppercase mb-4">Location</h4>
-                    <p class="lead mb-0">101 Pleaseant View Ave
-                        <br>Smithfield RI 02917
-                        <br>(401)233-1051
-                    </p>
-                </div>
-
-                <!-- Footer Social Icons -->
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h4 class="text-uppercase mb-4">Around the Web</h4>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#">
-                        <i class="fab fa-fw fa-facebook-f"></i>
-                    </a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#">
-                        <i class="fab fa-fw fa-twitter"></i>
-                    </a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#">
-                        <i class="fab fa-fw fa-linkedin-in"></i>
-                    </a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#">
-                        <i class="fab fa-fw fa-dribbble"></i>
-                    </a>
-                </div>
-
-                <!-- Footer About Text -->
-                <div class="col-lg-4">
-                    <h4 class="text-uppercase mb-4">About SMHL</h4>
-                    <p class="lead mb-0">See Contact Field to send request
-                        <!-- <a href="http://startbootstrap.com">Start Bootstrap</a>.</p> -->
-                </div>
-
-            </div>
-        </div>
-    </footer>
-
-    <!-- Copyright Section -->
-    <section class="copyright py-4 text-center text-white">
-        <div class="container">
-            <small>Copyright &copy; SMHL 2021 / djm</small>
-        </div>
-    </section>
-
-    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-    <div class="scroll-to-top d-lg-none position-fixed ">
-        <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
-            <i class="fa fa-chevron-up"></i>
-        </a>
-    </div>
-
-</html>
+</style>
+</div>
+</section> */
