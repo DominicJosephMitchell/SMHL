@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Smithfield Men's Hockey League - Standings</title>
+
+  <!-- Font Awesome -->
+
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Google Fonts -->
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+    type="text/css">
+
+  <!-- Freelancer Theme -->
+
+  <link href="css/freelancer.min.css" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       NAVIGATION DROPDOWN
+       ========================================================= */
+
+    .dropbtn {
+      background-color: rgba(128, 128, 128, 0);
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: rgb(47, 59, 79);
+      min-width: 190px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: rgb(62, 76, 98);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: rgb(47, 59, 79);
+    }
+
+
+    /* =========================================================
+       STANDINGS
+       ========================================================= */
+
+    .standings-section {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+
+    .stats-section {
+      padding-top: 80px;
+      padding-bottom: 100px;
+      background-color: #f8f9fa;
+    }
+
+
+    /* =========================================================
+       TABLE CONTAINERS
+       ========================================================= */
+
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin-top: 30px;
+      margin-bottom: 60px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+    }
+
+
+    /* =========================================================
+       STANDINGS TABLE
+       ========================================================= */
+
+    .standings-table {
+      width: 100%;
+      min-width: 950px;
+      border-collapse: collapse;
+    }
+
+    .standings-table thead {
+      background-color: #2f3b4f;
+      color: white;
+    }
+
+    .standings-table th {
+      padding: 15px 10px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .standings-table th:first-child,
+    .standings-table td:first-child {
+      text-align: center;
+    }
+
+    .standings-table td {
+      padding: 15px 10px;
+      text-align: center;
+      border-bottom: 1px solid #eeeeee;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .standings-table tbody tr:hover {
+      background-color: #f3f6fa;
+    }
+
+    .team-name {
+      text-align: left !important;
+      font-weight: 700;
+      color: #2f3b4f;
+    }
+
+    .team-color {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .black-team {
+      background-color: #222222;
+    }
+
+    .white-team {
+      background-color: #dddddd;
+      border: 1px solid #999999;
+    }
+
+    .red-team {
+      background-color: #d32f2f;
+    }
+
+    .blue-team {
+      background-color: #1976d2;
+    }
+
+    .beer-team {
+      background-color: #f4b400;
+    }
+
+    .points {
+      color: #1abc9c;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .positive {
+      color: #1abc9c;
+      font-weight: 700;
+    }
+
+    .negative {
+      color: #e74c3c;
+      font-weight: 700;
+    }
+
+
+    /* =========================================================
+       PLAYER TABLE
+       ========================================================= */
+
+    .player-table {
+      width: 100%;
+      min-width: 800px;
+      border-collapse: collapse;
+    }
+
+    .player-table thead {
+      background-color: #2f3b4f;
+      color: white;
+    }
+
+    .player-table th {
+      padding: 15px 10px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .player-table td {
+      padding: 14px 10px;
+      text-align: center;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .player-table th:first-child,
+    .player-table td:first-child {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    .player-table tbody tr:hover {
+      background-color: #f3f6fa;
+    }
+
+    .player-name {
+      font-weight: 700;
+      color: #2f3b4f;
+    }
+
+    .stat-highlight {
+      color: #1abc9c;
+      font-weight: 700;
+    }
+
+
+    /* =========================================================
+       GAME RESULTS
+       ========================================================= */
+
+    .game-results {
+      width: 100%;
+      min-width: 700px;
+      border-collapse: collapse;
+    }
+
+    .game-results thead {
+      background-color: #2f3b4f;
+      color: white;
+    }
+
+    .game-results th {
+      padding: 15px;
+      text-align: center;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .game-results td {
+      padding: 14px;
+      text-align: center;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .win {
+      color: #1abc9c;
+      font-weight: bold;
+    }
+
+    .loss {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+
+    .tie {
+      color: #f39c12;
+      font-weight: bold;
+    }
+
+
+    /* =========================================================
+       STAT CARDS
+       ========================================================= */
+
+    .stat-card {
+      background: white;
+      border-radius: 8px;
+      padding: 25px;
+      text-align: center;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .stat-card i {
+      font-size: 35px;
+      color: #1abc9c;
+      margin-bottom: 10px;
+    }
+
+    .stat-card h3 {
+      font-size: 30px;
+      font-weight: 700;
+      color: #2f3b4f;
+      margin-bottom: 5px;
+    }
+
+    .stat-card p {
+      margin: 0;
+      color: #777777;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 768px) {
+
+      .standings-section {
+        padding-top: 70px;
+      }
+
+      .page-section-heading {
+        font-size: 28px;
+      }
+
+    }
+  </style>
+
+</head>
+
+<body id="page-top">
+
+  <!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+
+    <div class="container">
+
+      ```
+      <a class="navbar-brand" href="index.html">
+        Smithfield Men's Hockey League
+      </a>
+
+
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
+        type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+        aria-expanded="false" aria-label="Toggle navigation">
+
+        Menu
+        <i class="fas fa-bars"></i>
+
+      </button>
+
+
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+
+        <ul class="navbar-nav ml-auto">
+
+
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.html#portfolio">
+              Staff
+            </a>
+          </li>
+
+
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.html#about">
+              Teams
+            </a>
+          </li>
+
+
+          <div class="dropdown">
+
+            <button class="dropbtn">
+              Play/Subs/Schd/Stnd
+            </button>
+
+            <div class="dropdown-content">
+
+              <a href="players.html">
+                Players
+              </a>
+
+              <a href="substitutes.html">
+                Substitutes
+              </a>
+
+              <a href="schedule.html">
+                Schedule
+              </a>
+
+              <a href="standings.html">
+                Standings
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.html#contact">
+              Contact
+            </a>
+          </li>
+
+
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="champs.html">
+              Champions
+            </a>
+          </li>
+
+
+        </ul>
+
+      </div>
+      ```
+
+    </div>
+
+  </nav>
+
+  <!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+  <header class="masthead bg-primary text-white text-center">
+
+    <div class="container">
+
+      ```
+      <h1 class="masthead-heading text-uppercase mb-0">
+        SMHL
+      </h1>
+
+
+      <div class="divider-custom divider-light">
+
+        <div class="divider-custom-line"></div>
+
+        <div class="divider-custom-icon">
+          <i class="fas fa-hockey-puck"></i>
+        </div>
+
+        <div class="divider-custom-line"></div>
+
+      </div>
+
+
+      <p class="masthead-subheading font-weight-light mb-0">
+        Standings & Statistics
+      </p>
+      ```
+
+    </div>
+
+  </header>
+
+  <!-- =========================================================
+     TEAM STANDINGS
+     ========================================================= -->
+
+  <section class="page-section standings-section">
+
+    <div class="container">
+
+      ```
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+        League Standings
+      </h2>
+
+
+      <div class="divider-custom">
+
+        <div class="divider-custom-line"></div>
+
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+
+        <div class="divider-custom-line"></div>
+
+      </div>
+
+
+      <p class="text-center text-muted">
+        Current Smithfield Men's Hockey League standings
+      </p>
+
+
+      <div class="table-container">
+
+        <table class="standings-table">
+
+          <thead>
+
+            <tr>
+              <th>#</th>
+              <th>Team</th>
+              <th>GP</th>
+              <th>W</th>
+              <th>L</th>
+              <th>T</th>
+              <th>GF</th>
+              <th>GA</th>
+              <th>+/-</th>
+              <th>PIM</th>
+              <th>PTS</th>
+            </tr>
+
+          </thead>
+
+          <tbody id="standingsTable">
+          </tbody>
+
+        </table>
+
+      </div>
+      ```
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+     LEAGUE STATISTICS
+     ========================================================= -->
+
+  <section class="stats-section">
+
+    <div class="container">
+
+      ```
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+        League Statistics
+      </h2>
+
+
+      <div class="divider-custom">
+
+        <div class="divider-custom-line"></div>
+
+        <div class="divider-custom-icon">
+          <i class="fas fa-chart-bar"></i>
+        </div>
+
+        <div class="divider-custom-line"></div>
+
+      </div>
+
+
+      <div class="row">
+
+
+        <div class="col-md-3">
+
+          <div class="stat-card">
+
+            <i class="fas fa-hockey-puck"></i>
+
+            <h3 id="totalGames">0</h3>
+
+            <p>Games Played</p>
+
+          </div>
+
+        </div>
+
+
+        <div class="col-md-3">
+
+          <div class="stat-card">
+
+            <i class="fas fa-bullseye"></i>
+
+            <h3 id="totalGoals">0</h3>
+
+            <p>Total Goals</p>
+
+          </div>
+
+        </div>
+
+
+        <div class="col-md-3">
+
+          <div class="stat-card">
+
+            <i class="fas fa-users"></i>
+
+            <h3 id="totalPlayers">0</h3>
+
+            <p>Players</p>
+
+          </div>
+
+        </div>
+
+
+        <div class="col-md-3">
+
+          <div class="stat-card">
+
+            <i class="fas fa-trophy"></i>
+
+            <h3 id="totalTeams">0</h3>
+
+            <p>Teams</p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+      ```
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+     PLAYER STATISTICS
+     ========================================================= -->
+
+  <section class="page-section">
+
+    <div class="container">
+
+      ```
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+        Player Statistics
+      </h2>
+
+
+      <div class="divider-custom">
+
+        <div class="divider-custom-line"></div>
+
+        <div class="divider-custom-icon">
+          <i class="fas fa-user"></i>
+        </div>
+
+        <div class="divider-custom-line"></div>
+
+      </div>
+
+
+      <p class="text-center text-muted">
+        Current season player statistics
+      </p>
+
+
+      <div class="table-container">
+
+        <table class="player-table">
+
+          <thead>
+
+            <tr>
+              <th>Player</th>
+              <th>Team</th>
+              <th>GP</th>
+              <th>G</th>
+              <th>A</th>
+              <th>PTS</th>
+              <th>PIM</th>
+            </tr>
+
+          </thead>
+
+          <tbody id="playerStatsTable">
+          </tbody>
+
+        </table>
+
+      </div>
+      ```
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+     GAME RESULTS
+     ========================================================= -->
+
+  <section class="stats-section">
+
+    <div class="container">
+
+      ```
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+        Game Results
+      </h2>
+
+
+      <div class="divider-custom">
+
+        <div class="divider-custom-line"></div>
+
+        <div class="divider-custom-icon">
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+
+        <div class="divider-custom-line"></div>
+
+      </div>
+
+
+      <div class="table-container">
+
+        <table class="game-results">
+
+          <thead>
+
+            <tr>
+              <th>Date</th>
+              <th>Home Team</th>
+              <th>Score</th>
+              <th>Away Team</th>
+              <th>Result</th>
+            </tr>
+
+          </thead>
+
+          <tbody id="gameResultsTable">
+          </tbody>
+
+        </table>
+
+      </div>
+      ```
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+  <footer class="footer text-center">
+
+    <div class="container">
+
+      ```
+      <div class="row">
+
+
+        <div class="col-lg-4 mb-5 mb-lg-0">
+
+          <h4 class="text-uppercase mb-4">
+            Location
+          </h4>
+
+          <p class="lead mb-0">
+            101 Pleasant View Ave
+            <br>
+            Smithfield RI 02917
+            <br>
+            (401)233-1051
+          </p>
+
+        </div>
+
+
+        <div class="col-lg-4 mb-5 mb-lg-0">
+
+          <h4 class="text-uppercase mb-4">
+            Around the Web
+          </h4>
+
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-facebook-f"></i>
+          </a>
+
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-twitter"></i>
+          </a>
+
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-linkedin-in"></i>
+          </a>
+
+        </div>
+
+
+        <div class="col-lg-4">
+
+          <h4 class="text-uppercase mb-4">
+            About SMHL
+          </h4>
+
+          <p class="lead mb-0">
+            Smithfield Men's Hockey League
+            <br>
+            Standings & Statistics
+          </p>
+
+        </div>
+
+
+      </div>
+      ```
+
+    </div>
+
+  </footer>
+
+  <!-- =========================================================
+     COPYRIGHT
+     ========================================================= -->
+
+  <section class="copyright py-4 text-center text-white">
+
+    <div class="container">
+
+      ```
+      <small>
+        Copyright &copy; SMHL 2021 / djm
+      </small>
+      ```
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <script src="js/freelancer.min.js"></script>
+
+  <script>
+
+    /*
+    ================================================================
+    ================================================================
+    
+                  EDIT SMHL LEAGUE DATA HERE
+    
+    ================================================================
+    
+    YOU SHOULD ONLY NEED TO EDIT THE THREE SECTIONS BELOW:
+    
+        1. TEAMS
+        2. GAMES
+        3. PLAYER GAME STATISTICS
+    
+    THE WEBSITE WILL AUTOMATICALLY CALCULATE:
+    
+        TEAM:
+        GP
+        W
+        L
+        T
+        GF
+        GA
+        +/-
+        PIM
+        PTS
+    
+        PLAYERS:
+        GP
+        G
+        A
+        PTS
+        PIM
+    
+    ================================================================
+    ================================================================
+    */
+
+
+    /* =========================================================
+       1. TEAMS
+    
+       Add/remove teams here.
+    
+       The team name must be spelled exactly the same
+       everywhere else in this file.
+    
+       Available colors:
+    
+       black-team
+       white-team
+       red-team
+       blue-team
+       beer-team
+       ========================================================= */
+
+
+    const teams = [
+
+      {
+        name: "Inman's",
+        color: "black-team"
+      },
+
+      {
+        name: "Ray's",
+        color: "blue-team"
+      },
+
+      {
+        name: "Phayres Flyers",
+        color: "white-team"
+      },
+
+      {
+        name: "Stitch's",
+        color: "red-team"
+      },
+
+      {
+        name: "Beer League",
+        color: "beer-team"
+      }
+
+    ];
+
+
+
+    /* =========================================================
+       2. GAMES
+    
+       ENTER EACH COMPLETED GAME HERE.
+    
+       date:
+       Date of game
+    
+       home:
+       Home team
+    
+       away:
+       Away team
+    
+       homeScore:
+       Home team's goals
+    
+       awayScore:
+       Away team's goals
+    
+       homePIM:
+       Home team's penalty minutes
+    
+       awayPIM:
+       Away team's penalty minutes
+    
+       YOU DO NOT ENTER:
+       Wins
+       Losses
+       Ties
+       GF
+       GA
+       Goal Differential
+       Points
+    
+       Those are calculated automatically.
+       ========================================================= */
+
+
+    const games = [
+
+
+      /* GAME 1 */
+
+      {
+        date: "09/01/2026",
+
+        home: "Inman's",
+
+        away: "Ray's",
+
+        homeScore: 5,
+
+        awayScore: 3,
+
+        homePIM: 6,
+
+        awayPIM: 4
+      },
+
+
+      /* GAME 2 */
+
+      {
+        date: "09/03/2026",
+
+        home: "Phayres Flyers",
+
+        away: "Stitch's",
+
+        homeScore: 2,
+
+        awayScore: 2,
+
+        homePIM: 8,
+
+        awayPIM: 10
+      },
+
+
+      /* GAME 3 */
+
+      {
+        date: "09/08/2026",
+
+        home: "Ray's",
+
+        away: "Beer League",
+
+        homeScore: 4,
+
+        awayScore: 1,
+
+        homePIM: 4,
+
+        awayPIM: 6
+      },
+
+
+      /* GAME 4 */
+
+      {
+        date: "09/10/2026",
+
+        home: "Stitch's",
+
+        away: "Inman's",
+
+        homeScore: 3,
+
+        awayScore: 6,
+
+        homePIM: 12,
+
+        awayPIM: 6
+      },
+
+
+      /* GAME 5 */
+
+      {
+        date: "09/15/2026",
+
+        home: "Beer League",
+
+        away: "Phayres Flyers",
+
+        homeScore: 4,
+
+        awayScore: 4,
+
+        homePIM: 8,
+
+        awayPIM: 8
+      }
+
+
+    ];
+
+
+
+    /* =========================================================
+       3. PLAYER GAME STATISTICS
+    
+       ENTER PLAYER STATS FOR EACH GAME HERE.
+    
+       IMPORTANT:
+    
+       Each player gets ONE entry for EACH GAME.
+    
+       gameDate must match the date of the game above.
+    
+       Example:
+    
+       Dan played on September 1:
+    
+       goals = 2
+       assists = 1
+       pim = 2
+    
+       The website automatically adds his totals
+       together for the season.
+    
+       You DO NOT enter season totals.
+    
+       ========================================================= */
+
+
+    const playerGameStats = [
+
+
+      /* =======================================================
+         GAME: 09/01/2026
+         ======================================================= */
+
+
+      {
+        gameDate: "09/01/2026",
+        player: "Dan Nardelli",
+        team: "Inman's",
+        goals: 2,
+        assists: 1,
+        pim: 2
+      },
+
+
+      {
+        gameDate: "09/01/2026",
+        player: "Richard Boyes",
+        team: "Ray's",
+        goals: 1,
+        assists: 1,
+        pim: 2
+      },
+
+
+      /* =======================================================
+         GAME: 09/03/2026
+         ======================================================= */
+
+
+      {
+        gameDate: "09/03/2026",
+        player: "Jeff Byrnes",
+        team: "Phayres Flyers",
+        goals: 1,
+        assists: 1,
+        pim: 4
+      },
+
+
+      {
+        gameDate: "09/03/2026",
+        player: "Bill Condon",
+        team: "Stitch's",
+        goals: 1,
+        assists: 0,
+        pim: 4
+      },
+
+
+      /* =======================================================
+         GAME: 09/08/2026
+         ======================================================= */
+
+
+      {
+        gameDate: "09/08/2026",
+        player: "Richard Boyes",
+        team: "Ray's",
+        goals: 2,
+        assists: 1,
+        pim: 2
+      },
+
+
+      {
+        gameDate: "09/08/2026",
+        player: "Michael Mouseau",
+        team: "Beer League",
+        goals: 1,
+        assists: 0,
+        pim: 2
+      },
+
+
+      /* =======================================================
+         GAME: 09/10/2026
+         ======================================================= */
+
+
+      {
+        gameDate: "09/10/2026",
+        player: "Dan Nardelli",
+        team: "Inman's",
+        goals: 1,
+        assists: 1,
+        pim: 4
+      },
+
+
+      {
+        gameDate: "09/10/2026",
+        player: "Bill Condon",
+        team: "Stitch's",
+        goals: 2,
+        assists: 1,
+        pim: 4
+      },
+
+
+      /* =======================================================
+         GAME: 09/15/2026
+         ======================================================= */
+
+
+      {
+        gameDate: "09/15/2026",
+        player: "Jeff Byrnes",
+        team: "Phayres Flyers",
+        goals: 1,
+        assists: 2,
+        pim: 2
+      },
+
+
+      {
+        gameDate: "09/15/2026",
+        player: "Michael Mouseau",
+        team: "Beer League",
+        goals: 0,
+        assists: 2,
+        pim: 2
+      }
+
+    ];
+
+
+
+    /*
+    ================================================================
+    ================================================================
+    
+                     DO NOT EDIT BELOW HERE
+    
+    ================================================================
+    ================================================================
+    */
+
+
+    /* =========================================================
+       CREATE TEAM STANDINGS
+       ========================================================= */
+
+
+    let standings = {};
+
+
+    teams.forEach(function (team) {
+
+      standings[team.name] = {
+
+        team: team.name,
+
+        color: team.color,
+
+        gp: 0,
+
+        wins: 0,
+
+        losses: 0,
+
+        ties: 0,
+
+        goalsFor: 0,
+
+        goalsAgainst: 0,
+
+        pim: 0,
+
+        points: 0
+
+      };
+
+    });
+
+
+
+    /* =========================================================
+       PROCESS ALL GAMES
+       ========================================================= */
+
+
+    games.forEach(function (game) {
+
+      let home = standings[game.home];
+
+      let away = standings[game.away];
+
+
+      if (!home || !away) {
+
+        console.error(
+          "Team name not found:",
+          game.home,
+          game.away
+        );
+
+        return;
+
+      }
+
+
+      home.gp++;
+
+      away.gp++;
+
+
+      home.goalsFor += game.homeScore;
+
+      home.goalsAgainst += game.awayScore;
+
+
+      away.goalsFor += game.awayScore;
+
+      away.goalsAgainst += game.homeScore;
+
+
+      home.pim += game.homePIM;
+
+      away.pim += game.awayPIM;
+
+
+      /* HOME WIN */
+
+      if (game.homeScore > game.awayScore) {
+
+        home.wins++;
+
+        home.points += 2;
+
+        away.losses++;
+
+      }
+
+
+      /* AWAY WIN */
+
+      else if (game.homeScore < game.awayScore) {
+
+        away.wins++;
+
+        away.points += 2;
+
+        home.losses++;
+
+      }
+
+
+      /* TIE */
+
+      else {
+
+        home.ties++;
+
+        away.ties++;
+
+        home.points++;
+
+        away.points++;
+
+      }
+
+    });
+
+
+
+    /* =========================================================
+       SORT TEAM STANDINGS
+       ========================================================= */
+
+
+    let standingsArray =
+      Object.values(standings);
+
+
+    standingsArray.sort(function (a, b) {
+
+
+      /* Points */
+
+      if (b.points !== a.points) {
+
+        return b.points - a.points;
+
+      }
+
+
+      /* Wins */
+
+      if (b.wins !== a.wins) {
+
+        return b.wins - a.wins;
+
+      }
+
+
+      /* Goal Differential */
+
+      let aDiff =
+        a.goalsFor - a.goalsAgainst;
+
+
+      let bDiff =
+        b.goalsFor - b.goalsAgainst;
+
+
+      return bDiff - aDiff;
+
+    });
+
+
+
+    /* =========================================================
+       DISPLAY STANDINGS
+       ========================================================= */
+
+
+    const standingsTable =
+      document.getElementById("standingsTable");
+
+
+    standingsArray.forEach(function (team, index) {
+
+
+      let differential =
+        team.goalsFor - team.goalsAgainst;
+
+
+      let differentialClass =
+        differential >= 0
+          ? "positive"
+          : "negative";
+
+
+      let differentialDisplay =
+        differential > 0
+          ? "+" + differential
+          : differential;
+
+
+      let row = `
+
+    <tr>
+
+      <td>
+        ${index + 1}
+      </td>
+
+
+      <td class="team-name">
+
+        <span class="team-color ${team.color}">
+        </span>
+
+        ${team.team}
+
+      </td>
+
+
+      <td>
+        ${team.gp}
+      </td>
+
+
+      <td>
+        ${team.wins}
+      </td>
+
+
+      <td>
+        ${team.losses}
+      </td>
+
+
+      <td>
+        ${team.ties}
+      </td>
+
+
+      <td>
+        ${team.goalsFor}
+      </td>
+
+
+      <td>
+        ${team.goalsAgainst}
+      </td>
+
+
+      <td class="${differentialClass}">
+        ${differentialDisplay}
+      </td>
+
+
+      <td>
+        ${team.pim}
+      </td>
+
+
+      <td class="points">
+        ${team.points}
+      </td>
+
+    </tr>
+
+  `;
+
+
+      standingsTable.innerHTML += row;
+
+    });
+
+
+
+    /* =========================================================
+       CREATE PLAYER SEASON TOTALS
+       ========================================================= */
+
+
+    let playerTotals = {};
+
+
+    playerGameStats.forEach(function (stat) {
+
+
+      let key =
+        stat.player + "|" + stat.team;
+
+
+      if (!playerTotals[key]) {
+
+        playerTotals[key] = {
+
+          name: stat.player,
+
+          team: stat.team,
+
+          games: 0,
+
+          goals: 0,
+
+          assists: 0,
+
+          pim: 0
+
+        };
+
+      }
+
+
+      playerTotals[key].games++;
+
+      playerTotals[key].goals += stat.goals;
+
+      playerTotals[key].assists += stat.assists;
+
+      playerTotals[key].pim += stat.pim;
+
+    });
+
+
+
+    /* =========================================================
+       SORT PLAYERS BY POINTS
+       ========================================================= */
+
+
+    let playerArray =
+      Object.values(playerTotals);
+
+
+    playerArray.sort(function (a, b) {
+
+
+      let aPoints =
+        a.goals + a.assists;
+
+
+      let bPoints =
+        b.goals + b.assists;
+
+
+      return bPoints - aPoints;
+
+    });
+
+
+
+    /* =========================================================
+       DISPLAY PLAYER STATISTICS
+       ========================================================= */
+
+
+    const playerStatsTable =
+      document.getElementById("playerStatsTable");
+
+
+    playerArray.forEach(function (player) {
+
+
+      let points =
+        player.goals + player.assists;
+
+
+      let row = `
+
+    <tr>
+
+      <td class="player-name">
+        ${player.name}
+      </td>
+
+
+      <td>
+        ${player.team}
+      </td>
+
+
+      <td>
+        ${player.games}
+      </td>
+
+
+      <td>
+        ${player.goals}
+      </td>
+
+
+      <td>
+        ${player.assists}
+      </td>
+
+
+      <td class="stat-highlight">
+        ${points}
+      </td>
+
+
+      <td>
+        ${player.pim}
+      </td>
+
+    </tr>
+
+  `;
+
+
+      playerStatsTable.innerHTML += row;
+
+    });
+
+
+
+    /* =========================================================
+       DISPLAY GAME RESULTS
+       ========================================================= */
+
+
+    const gameResultsTable =
+      document.getElementById("gameResultsTable");
+
+
+    games.forEach(function (game) {
+
+
+      let result;
+
+      let resultClass;
+
+
+      if (game.homeScore > game.awayScore) {
+
+        result =
+          game.home + " WIN";
+
+        resultClass =
+          "win";
+
+      }
+
+
+      else if (game.homeScore < game.awayScore) {
+
+        result =
+          game.away + " WIN";
+
+        resultClass =
+          "win";
+
+      }
+
+
+      else {
+
+        result = "TIE";
+
+        resultClass = "tie";
+
+      }
+
+
+      let row = `
+
+    <tr>
+
+      <td>
+        ${game.date}
+      </td>
+
+
+      <td>
+        ${game.home}
+      </td>
+
+
+      <td>
+
+        <strong>
+          ${game.homeScore} - ${game.awayScore}
+        </strong>
+
+      </td>
+
+
+      <td>
+        ${game.away}
+      </td>
+
+
+      <td class="${resultClass}">
+        ${result}
+      </td>
+
+    </tr>
+
+  `;
+
+
+      gameResultsTable.innerHTML += row;
+
+    });
+
+
+
+    /* =========================================================
+       LEAGUE TOTALS
+       ========================================================= */
+
+
+    let totalGoals = 0;
+
+
+    games.forEach(function (game) {
+
+      totalGoals += game.homeScore;
+
+      totalGoals += game.awayScore;
+
+    });
+
+
+    document.getElementById("totalGames").innerText =
+      games.length;
+
+
+    document.getElementById("totalGoals").innerText =
+      totalGoals;
+
+
+    document.getElementById("totalPlayers").innerText =
+      playerArray.length;
+
+
+    document.getElementById("totalTeams").innerText =
+      teams.length;
+
+
+  </script>
+
+</body>
+
+</html>
