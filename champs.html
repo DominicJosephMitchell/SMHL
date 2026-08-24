@@ -5,6 +5,7 @@
 <head>
 
     <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <meta name="description" content="">
@@ -13,9 +14,9 @@
     <title>Smithfield Men's Hockey League</title>
 
 
-    <!-- =========================
+    <!-- =====================================================
          CUSTOM FONTS
-         ========================= -->
+         ===================================================== -->
 
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -25,54 +26,111 @@
         type="text/css">
 
 
-    <!-- =========================
+    <!-- =====================================================
          THEME CSS
-         ========================= -->
+         ===================================================== -->
 
     <link href="css/freelancer.min.css" rel="stylesheet">
 
 
     <style>
         /* =====================================================
-           DROPDOWN MENU
+           NAVIGATION
            ===================================================== */
 
-        .dropbtn {
-            background-color: rgba(128, 128, 128, 0);
-            color: white;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
+        #mainNav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            width: 100%;
+
+            z-index: 10000;
         }
+
+
+        #mainNav .container {
+            position: relative;
+            z-index: 10001;
+        }
+
+
+        #mainNav a,
+        #mainNav button {
+            position: relative;
+            z-index: 10002;
+        }
+
+
+        /* =====================================================
+           DROPDOWN
+           ===================================================== */
 
         .dropdown {
             position: relative;
             display: inline-block;
+            z-index: 10003;
         }
+
+
+        .dropbtn {
+            background-color: rgba(128, 128, 128, 0);
+            color: white;
+
+            padding: 16px;
+
+            font-size: 16px;
+
+            border: none;
+
+            cursor: pointer;
+        }
+
 
         .dropdown-content {
             display: none;
+
             position: absolute;
+
+            top: 100%;
+            left: 0;
+
             background-color: rgb(47, 59, 79);
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 100;
+
+            min-width: 190px;
+
+            box-shadow:
+                0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+            z-index: 10004;
         }
+
 
         .dropdown-content a {
-            color: black;
+            color: white;
+
             padding: 12px 16px;
+
             text-decoration: none;
+
             display: block;
+
+            white-space: nowrap;
+
+            cursor: pointer;
         }
 
+
         .dropdown-content a:hover {
-            background-color: rgb(47, 59, 79);
+            background-color: rgb(65, 78, 100);
         }
+
 
         .dropdown:hover .dropdown-content {
             display: block;
         }
+
 
         .dropdown:hover .dropbtn {
             background-color: rgb(47, 59, 79);
@@ -80,62 +138,72 @@
 
 
         /* =====================================================
-           CHAMPIONSHIP / MATRIX SECTION
+           CHAMPIONSHIP SECTION
            ===================================================== */
 
         #container {
 
             /*
-             * Width of the section.
-             * 100% allows it to resize with the screen.
+             * Keep the championship section below
+             * the fixed navigation bar.
+             */
+
+            margin-top: 100px;
+
+            margin-left: auto;
+            margin-right: auto;
+
+
+            /*
+             * Responsive width.
              */
 
             width: 100%;
 
-            /*
-             * Maximum width of the section.
-             * Change this number if you want it wider.
-             */
-
             max-width: 1200px;
 
+
             /*
-             * Height of the picture section.
+             * Height of the championship picture.
              */
 
             height: 600px;
 
-            /*
-             * Center the section.
-             */
-
-            margin: 0 auto;
 
             /*
-             * Black background behind the picture.
+             * Background.
              */
 
             background: black;
 
+
             /*
-             * Needed so the image and Matrix
-             * canvas can sit on top of each other.
+             * Required for image and Matrix positioning.
              */
 
             position: relative;
 
+
             /*
-             * Hide anything that extends outside
-             * the picture area.
+             * Keep everything inside the section.
              */
 
             overflow: hidden;
+
 
             border: 5px solid black;
 
             border-radius: 10px;
 
             box-shadow: 0 5px 50px #333;
+
+
+            /*
+             * Keep the entire section BELOW
+             * the navigation.
+             */
+
+            z-index: 1;
         }
 
 
@@ -145,42 +213,45 @@
 
         .img {
 
-            /*
-             * Position the image inside the section.
-             */
-
             position: absolute;
 
             top: 0;
             left: 0;
 
-            /*
-             * Put the picture behind the Matrix.
-             */
-
-            z-index: 1;
 
             /*
-             * Make the image fill the entire section.
+             * Fill the entire section.
              */
 
             width: 100%;
             height: 100%;
 
+
             /*
-             * Cover fills the entire section without
-             * stretching the picture.
+             * Fill the area without stretching.
              *
-             * Some edges may be cropped.
+             * Some edges can be cropped.
              */
 
             object-fit: cover;
 
+            object-position: center center;
+
+
             /*
-             * Keep the center of the photograph visible.
+             * Put image behind Matrix.
              */
 
-            object-position: center center;
+            z-index: 1;
+
+
+            /*
+             * IMPORTANT:
+             *
+             * Image cannot block navigation clicks.
+             */
+
+            pointer-events: none;
         }
 
 
@@ -195,32 +266,41 @@
             top: 0;
             left: 0;
 
-            z-index: 20;
+
+            width: 100%;
+            height: 100%;
+
 
             /*
-             * Matrix is invisible when the page first loads.
+             * Matrix sits above picture.
+             */
+
+            z-index: 20;
+
+
+            /*
+             * Hidden initially.
              */
 
             opacity: 0;
 
+
             /*
-             * Fade the Matrix in after the 30-second delay.
+             * Smooth fade in.
              */
 
             transition: opacity 1s ease-in;
 
+
             /*
-             * Matrix doesn't interfere with
-             * clicking on the page.
+             * IMPORTANT:
+             *
+             * Matrix cannot block navigation clicks.
              */
 
             pointer-events: none;
         }
 
-
-        /*
-         * This class is added after 30 seconds.
-         */
 
         #Matrix.active {
             opacity: 1;
@@ -228,19 +308,26 @@
 
 
         /* =====================================================
-           MOBILE SCREEN
+           FOOTER
+           ===================================================== */
+
+        footer {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* =====================================================
+           MOBILE
            ===================================================== */
 
         @media (max-width: 768px) {
 
             #container {
 
-                /*
-                 * Make the section shorter on phones.
-                 */
-
                 height: 480px;
 
+                margin-top: 90px;
             }
 
         }
@@ -258,8 +345,11 @@
 
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
 
+
         <div class="container">
 
+
+            <!-- WEBSITE NAME -->
 
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
 
@@ -267,6 +357,8 @@
 
             </a>
 
+
+            <!-- MOBILE MENU BUTTON -->
 
             <button
                 class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
@@ -279,6 +371,8 @@
 
             </button>
 
+
+            <!-- NAVIGATION -->
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
 
@@ -312,14 +406,12 @@
                     </li>
 
 
-                    <!-- =================================================
-                         PLAY / SUBS / SCHEDULE / STANDINGS
-                         ================================================= -->
+                    <!-- PLAY / SUBS / SCHEDULE / STANDINGS -->
 
-                    <div class="dropdown">
+                    <li class="nav-item mx-0 mx-lg-1 dropdown">
 
 
-                        <button class="dropbtn">
+                        <button class="dropbtn" type="button">
 
                             Play/Subs/Schd/Stnd
 
@@ -329,28 +421,28 @@
                         <div class="dropdown-content">
 
 
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="players.html">
+                            <a href="players.html">
 
                                 Players
 
                             </a>
 
 
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="substitutes.html">
+                            <a href="substitutes.html">
 
                                 Substitutes
 
                             </a>
 
 
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="schedule.html">
+                            <a href="schedule.html">
 
                                 Schedule
 
                             </a>
 
 
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="standings.html">
+                            <a href="standings.html">
 
                                 Standings
 
@@ -359,7 +451,8 @@
 
                         </div>
 
-                    </div>
+
+                    </li>
 
 
                     <!-- CONTACT -->
@@ -406,21 +499,16 @@
     <div id="container">
 
 
-        <!-- =================================================
-             CHAMPIONSHIP PICTURE
-
-             The image now automatically fits the section.
-             ================================================= -->
+        <!-- CHAMPIONSHIP IMAGE -->
 
         <img id="championshipImage" class="img" src="img/portfolio/Champs 2020.jpg"
             alt="Smithfield Men's Hockey League Champions">
 
 
-        <!-- =================================================
-             MATRIX CANVAS
-             ================================================= -->
+        <!-- MATRIX CANVAS -->
 
-        <canvas id="Matrix"></canvas>
+        <canvas id="Matrix">
+        </canvas>
 
 
     </div>
@@ -428,7 +516,7 @@
 
 
     <!-- =====================================================
-         EXISTING JAVASCRIPT
+         EXISTING WEBSITE JAVASCRIPT
          ===================================================== -->
 
     <script src="./index.js"></script>
@@ -443,7 +531,7 @@
 
 
         /* =====================================================
-           GET HTML ELEMENTS
+           GET ELEMENTS
            ===================================================== */
 
         const canvas =
@@ -484,21 +572,28 @@
 
         const fontSize = 16;
 
-        let columns;
+        let columns = 0;
 
         let rainDrops = [];
+
+        let matrixStarted = false;
+
+        let matrixTimer = null;
+
+        let matrixInterval = null;
 
 
 
         /* =====================================================
-           SET CANVAS SIZE TO MATCH THE SECTION
+           RESIZE MATRIX
            ===================================================== */
 
         function resizeCanvas() {
 
+
             /*
-             * Use the actual size of the
-             * championship section.
+             * Match the Matrix canvas to the
+             * actual championship section.
              */
 
             canvas.width =
@@ -509,8 +604,8 @@
 
 
             /*
-             * Calculate the number of Matrix
-             * columns needed.
+             * Calculate number of columns.
+
              */
 
             columns =
@@ -520,7 +615,8 @@
 
 
             /*
-             * Reset the rain drops.
+             * Reset Matrix drops.
+
              */
 
             rainDrops = [];
@@ -532,7 +628,16 @@
                 x++
             ) {
 
-                rainDrops[x] = 1;
+                /*
+                 * Start each column at a
+                 * random location.
+
+                 */
+
+                rainDrops[x] =
+                    Math.floor(
+                        Math.random() * -20
+                    );
 
             }
 
@@ -541,7 +646,7 @@
 
 
         /* =====================================================
-           INITIAL CANVAS SIZE
+           INITIAL MATRIX SIZE
            ===================================================== */
 
         resizeCanvas();
@@ -549,18 +654,21 @@
 
 
         /* =====================================================
-           MATRIX DRAW FUNCTION
+           DRAW MATRIX
            ===================================================== */
 
         function draw() {
 
 
             /*
-             * Create the fading black background.
+             * Dark transparent layer creates
+             * the Matrix trail effect.
+
              */
 
             context.fillStyle =
                 'rgba(0, 0, 0, 0.05)';
+
 
             context.fillRect(
                 0,
@@ -571,16 +679,13 @@
 
 
             /*
-             * Matrix character color.
+             * Matrix green.
+
              */
 
             context.fillStyle =
                 '#0F0';
 
-
-            /*
-             * Matrix font.
-             */
 
             context.font =
                 fontSize + 'px monospace';
@@ -588,7 +693,8 @@
 
 
             /*
-             * Draw each column.
+             * Draw every column.
+
              */
 
             for (
@@ -599,7 +705,8 @@
 
 
                 /*
-                 * Pick a random Matrix character.
+                 * Select random character.
+
                  */
 
                 const text =
@@ -612,7 +719,8 @@
 
 
                 /*
-                 * Draw the character.
+                 * Draw character.
+
                  */
 
                 context.fillText(
@@ -623,8 +731,9 @@
 
 
                 /*
-                 * Reset the column after
-                 * it reaches the bottom.
+                 * Reset column after
+                 * reaching bottom.
+
                  */
 
                 if (
@@ -639,7 +748,8 @@
 
 
                 /*
-                 * Move the character downward.
+                 * Move character downward.
+
                  */
 
                 rainDrops[i]++;
@@ -651,17 +761,15 @@
 
 
         /* =====================================================
-           START MATRIX AFTER IMAGE LOADS
+           START MATRIX
            ===================================================== */
-
-        let matrixStarted = false;
-
 
         function startMatrix() {
 
 
             /*
-             * Prevent Matrix from starting twice.
+             * Do not start Matrix more than once.
+
              */
 
             if (matrixStarted) {
@@ -675,61 +783,62 @@
 
 
             console.log(
-                'Championship picture loaded.'
+                'Championship image loaded.'
             );
 
 
             console.log(
-                'Waiting 30 seconds before Matrix starts...'
+                'Matrix will start in 30 seconds.'
             );
 
 
             /*
-             * WAIT 30 SECONDS
-             *
-             * 30000 milliseconds = 30 seconds
+             * 30 seconds = 30,000 milliseconds.
+
              */
 
-            setTimeout(
-                function () {
+            matrixTimer =
+                setTimeout(
+                    function () {
 
 
-                    console.log(
-                        '30 seconds complete. Starting Matrix.'
-                    );
+                        console.log(
+                            'Starting Matrix.'
+                        );
 
 
-                    /*
-                     * Make Matrix visible.
-                     */
+                        /*
+                         * Fade Matrix in.
 
-                    canvas.classList.add(
-                        'active'
-                    );
+                         */
 
-
-                    /*
-                     * Start the Matrix animation.
-                     *
-                     * 30 milliseconds between frames.
-                     */
-
-                    setInterval(
-                        draw,
-                        30
-                    );
+                        canvas.classList.add(
+                            'active'
+                        );
 
 
-                },
-                30000
-            );
+                        /*
+                         * Start Matrix animation.
+
+                         */
+
+                        matrixInterval =
+                            setInterval(
+                                draw,
+                                30
+                            );
+
+
+                    },
+                    30000
+                );
 
         }
 
 
 
         /* =====================================================
-           WAIT FOR THE IMAGE TO LOAD
+           IMAGE LOADED
            ===================================================== */
 
         championshipImage.addEventListener(
@@ -740,15 +849,13 @@
 
 
         /* =====================================================
-           HANDLE CACHED IMAGES
+           CACHED IMAGE
            ===================================================== */
 
         /*
-         * Sometimes the browser has already loaded
-         * the image from its cache.
-         *
-         * This makes sure the 30-second timer
-         * still starts in that situation.
+         * If the image has already loaded from
+         * browser cache, start the timer anyway.
+
          */
 
         if (championshipImage.complete) {
@@ -760,7 +867,7 @@
 
 
         /* =====================================================
-           RESIZE MATRIX WHEN WINDOW CHANGES SIZE
+           WINDOW RESIZE
            ===================================================== */
 
         window.addEventListener(
@@ -790,7 +897,7 @@
             <div class="row">
 
 
-                <!-- FOOTER LOCATION -->
+                <!-- LOCATION -->
 
                 <div class="col-lg-4 mb-5 mb-lg-0">
 
@@ -821,7 +928,7 @@
 
 
 
-                <!-- FOOTER SOCIAL ICONS -->
+                <!-- SOCIAL MEDIA -->
 
                 <div class="col-lg-4 mb-5 mb-lg-0">
 
@@ -865,7 +972,7 @@
 
 
 
-                <!-- FOOTER ABOUT -->
+                <!-- ABOUT -->
 
                 <div class="col-lg-4">
 
