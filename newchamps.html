@@ -1,7 +1,9 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,24 +14,26 @@
 
     <title>SMHL | Champions</title>
 
+
     <!-- =====================================================
        FONTS
-  ====================================================== -->
+    ====================================================== -->
 
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800|Lato:400,700" rel="stylesheet">
 
+
     <!-- =====================================================
        THEME
-  ====================================================== -->
+    ====================================================== -->
 
     <link href="css/freelancer.min.css" rel="stylesheet">
 
 
     <!-- =====================================================
        CUSTOM STYLES
-  ====================================================== -->
+    ====================================================== -->
 
     <style>
         :root {
@@ -55,8 +59,8 @@
 
 
         /* =====================================================
-       GLOBAL
-    ====================================================== */
+           GLOBAL
+        ====================================================== */
 
         html {
             scroll-behavior: smooth;
@@ -87,8 +91,8 @@
 
 
         /* =====================================================
-       NAVIGATION
-    ====================================================== */
+           NAVIGATION
+        ====================================================== */
 
         #mainNav {
             position: fixed;
@@ -100,22 +104,63 @@
 
             background: rgba(31, 45, 61, 0.98) !important;
 
-            padding: 0.75rem 0;
+            /*
+             * LARGE NAVBAR AT TOP
+             */
+            padding: 1.5rem 0;
 
             box-shadow:
                 0 2px 15px rgba(0, 0, 0, 0.18);
+
+            transition:
+                padding 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease;
         }
+
+
+        /* -----------------------------------------------------
+           LARGE TITLE AT TOP OF PAGE
+        ------------------------------------------------------ */
 
         #mainNav .navbar-brand {
             color: var(--smhl-white) !important;
 
-            font-size: 0.95rem;
-            font-weight: 700;
+            font-size: 1.35rem;
+            font-weight: 800;
 
             letter-spacing: 0.04em;
 
             white-space: nowrap;
+
+            transition:
+                font-size 0.3s ease,
+                color 0.3s ease;
         }
+
+
+        /* -----------------------------------------------------
+           SHRUNK NAVBAR AFTER SCROLLING
+        ------------------------------------------------------ */
+
+        #mainNav.navbar-shrink {
+            padding: 0.55rem 0;
+
+            background: rgba(22, 32, 44, 0.98) !important;
+
+            box-shadow:
+                0 2px 12px rgba(0, 0, 0, 0.25);
+        }
+
+
+        #mainNav.navbar-shrink .navbar-brand {
+            font-size: 0.95rem;
+        }
+
+
+        /* -----------------------------------------------------
+           NAV LINKS
+        ------------------------------------------------------ */
 
         #mainNav .nav-link {
             color: rgba(255, 255, 255, 0.9) !important;
@@ -139,23 +184,31 @@
 
         #mainNav .nav-link.active {
             color: var(--smhl-white) !important;
+
             background: var(--smhl-accent);
         }
 
+
+        /* -----------------------------------------------------
+           NAVBAR TOGGLE
+        ------------------------------------------------------ */
+
         .navbar-toggler {
             border: 0;
+
             padding: 0.5rem 0.75rem;
         }
 
         .navbar-toggler:focus {
             outline: none;
+
             box-shadow: none;
         }
 
 
         /* =====================================================
-       NAVIGATION DROPDOWN
-    ====================================================== */
+           NAVIGATION DROPDOWN
+        ====================================================== */
 
         .nav-dropdown {
             position: relative;
@@ -169,6 +222,7 @@
             background: var(--smhl-navy);
 
             border: 0;
+
             border-radius: var(--radius-sm);
 
             box-shadow: var(--shadow-md);
@@ -180,6 +234,7 @@
             font-family: "Montserrat", sans-serif;
 
             font-size: 0.78rem;
+
             font-weight: 600;
 
             padding: 0.7rem 1rem;
@@ -196,18 +251,29 @@
 
 
         /* =====================================================
-       PAGE HERO
-    ====================================================== */
+           PAGE HERO
+        ====================================================== */
 
         .champions-hero {
             position: relative;
 
+            /*
+             * Removed the old margin-top: 74px.
+             * Padding now accounts for the large navbar.
+             */
+            margin-top: 0;
+
             min-height: 330px;
 
-            margin-top: 74px;
+            padding-top: 110px;
+            padding-bottom: 40px;
+
+            box-sizing: border-box;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             overflow: hidden;
@@ -218,20 +284,24 @@
                     rgba(44, 62, 80, 0.95));
         }
 
+
         .champions-hero::before {
             content: "";
 
             position: absolute;
+
             inset: 0;
 
             background:
                 radial-gradient(circle at 20% 30%,
                     rgba(26, 188, 156, 0.15),
                     transparent 30%),
+
                 radial-gradient(circle at 80% 70%,
                     rgba(255, 255, 255, 0.07),
                     transparent 30%);
         }
+
 
         .hero-content {
             position: relative;
@@ -242,10 +312,11 @@
 
             max-width: 900px;
 
-            padding: 70px 20px;
+            padding: 50px 20px;
 
             text-align: center;
         }
+
 
         .hero-icon {
             width: 80px;
@@ -254,6 +325,7 @@
             margin: 0 auto 1.5rem;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
@@ -271,6 +343,7 @@
                 0 0 35px rgba(26, 188, 156, 0.15);
         }
 
+
         .hero-title {
             margin: 0;
 
@@ -287,6 +360,7 @@
             text-transform: uppercase;
         }
 
+
         .hero-subtitle {
             max-width: 650px;
 
@@ -299,14 +373,15 @@
 
 
         /* =====================================================
-       CHAMPIONSHIP SECTION
-    ====================================================== */
+           CHAMPIONSHIP SECTION
+        ====================================================== */
 
         .championship-section {
             padding: 80px 0 100px;
 
             background: var(--smhl-light);
         }
+
 
         .section-heading {
             margin: 0;
@@ -324,10 +399,12 @@
             text-transform: uppercase;
         }
 
+
         .section-divider {
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             gap: 1rem;
@@ -337,15 +414,18 @@
             color: var(--smhl-accent);
         }
 
+
         .section-divider::before,
         .section-divider::after {
             content: "";
 
             width: 70px;
+
             height: 2px;
 
             background: var(--smhl-accent);
         }
+
 
         .section-intro {
             max-width: 700px;
@@ -361,8 +441,8 @@
 
 
         /* =====================================================
-       CHAMPIONSHIP DISPLAY
-    ====================================================== */
+           CHAMPIONSHIP DISPLAY
+        ====================================================== */
 
         .championship-card {
             position: relative;
@@ -390,8 +470,8 @@
 
 
         /* =====================================================
-       CHAMPIONSHIP IMAGE
-    ====================================================== */
+           CHAMPIONSHIP IMAGE
+        ====================================================== */
 
         .championship-image {
             position: absolute;
@@ -414,14 +494,15 @@
                 filter 1s ease;
         }
 
+
         .championship-card:hover .championship-image {
             transform: scale(1.025);
         }
 
 
         /* =====================================================
-       DARK OVERLAY
-    ====================================================== */
+           DARK OVERLAY
+        ====================================================== */
 
         .championship-overlay {
             position: absolute;
@@ -441,8 +522,8 @@
 
 
         /* =====================================================
-       MATRIX CANVAS
-    ====================================================== */
+           MATRIX CANVAS
+        ====================================================== */
 
         #Matrix {
             position: absolute;
@@ -462,14 +543,15 @@
             pointer-events: none;
         }
 
+
         #Matrix.active {
             opacity: 0.85;
         }
 
 
         /* =====================================================
-       CHAMPIONSHIP INFORMATION
-    ====================================================== */
+           CHAMPIONSHIP INFORMATION
+        ====================================================== */
 
         .championship-info {
             position: absolute;
@@ -488,6 +570,7 @@
 
             pointer-events: none;
         }
+
 
         .championship-badge {
             display: inline-flex;
@@ -511,6 +594,7 @@
             background: rgba(0, 0, 0, 0.35);
         }
 
+
         .championship-title {
             margin: 0;
 
@@ -528,6 +612,7 @@
                 0 2px 10px rgba(0, 0, 0, 0.7);
         }
 
+
         .championship-caption {
             margin: 0.4rem 0 0;
 
@@ -538,8 +623,8 @@
 
 
         /* =====================================================
-       MATRIX STATUS
-    ====================================================== */
+           MATRIX STATUS
+        ====================================================== */
 
         .matrix-status {
             margin-top: 1rem;
@@ -559,14 +644,15 @@
             transition: opacity 1s ease;
         }
 
+
         .matrix-status.active {
             opacity: 1;
         }
 
 
         /* =====================================================
-       FOOTER
-    ====================================================== */
+           FOOTER
+        ====================================================== */
 
         .smhl-footer {
             padding: 70px 0 40px;
@@ -575,6 +661,7 @@
 
             background: var(--smhl-navy);
         }
+
 
         .footer-heading {
             margin-bottom: 1.25rem;
@@ -590,9 +677,11 @@
             text-transform: uppercase;
         }
 
+
         .footer-text {
             color: rgba(255, 255, 255, 0.7);
         }
+
 
         .footer-link {
             color: rgba(255, 255, 255, 0.75);
@@ -600,9 +689,11 @@
             text-decoration: none;
         }
 
+
         .footer-link:hover {
             color: var(--smhl-accent);
         }
+
 
         .social-links {
             display: flex;
@@ -611,6 +702,7 @@
 
             gap: 0.6rem;
         }
+
 
         .social-link {
             display: inline-flex;
@@ -630,6 +722,7 @@
             text-decoration: none;
         }
 
+
         .social-link:hover {
             color: var(--smhl-white);
 
@@ -639,6 +732,7 @@
 
             transform: translateY(-3px);
         }
+
 
         .copyright {
             padding: 20px 0;
@@ -654,8 +748,8 @@
 
 
         /* =====================================================
-       SCROLL TO TOP
-    ====================================================== */
+           SCROLL TO TOP
+        ====================================================== */
 
         .scroll-to-top {
             z-index: 1000;
@@ -669,8 +763,8 @@
 
 
         /* =====================================================
-       RESPONSIVE
-    ====================================================== */
+           RESPONSIVE
+        ====================================================== */
 
         @media (max-width: 991.98px) {
 
@@ -682,6 +776,7 @@
                 line-height: 1.3;
             }
 
+
             .nav-dropdown-menu {
                 width: 100%;
 
@@ -690,25 +785,62 @@
                 box-shadow: none;
             }
 
+
             .champions-hero {
-                margin-top: 70px;
+                padding-top: 100px;
             }
+
         }
 
 
         @media (max-width: 767.98px) {
 
-            .champions-hero {
-                min-height: 280px;
+            /*
+             * Smaller navbar on mobile.
+             */
+
+            #mainNav {
+                padding: 0.8rem 0;
             }
 
-            .hero-content {
-                padding: 55px 20px;
+
+            #mainNav.navbar-shrink {
+                padding: 0.45rem 0;
             }
+
+
+            #mainNav .navbar-brand {
+                font-size: 1rem;
+
+                max-width: 75%;
+
+                white-space: normal;
+
+                line-height: 1.3;
+            }
+
+
+            #mainNav.navbar-shrink .navbar-brand {
+                font-size: 0.85rem;
+            }
+
+
+            .champions-hero {
+                min-height: 280px;
+
+                padding-top: 95px;
+            }
+
+
+            .hero-content {
+                padding: 45px 20px;
+            }
+
 
             .championship-section {
                 padding: 60px 15px 70px;
             }
+
 
             .championship-card {
                 min-height: 400px;
@@ -718,17 +850,21 @@
                 border-width: 3px;
             }
 
+
             .championship-info {
                 padding: 1.25rem;
             }
+
 
             .championship-title {
                 font-size: 1.4rem;
             }
 
+
             .social-links {
                 justify-content: flex-start;
             }
+
         }
 
 
@@ -738,6 +874,7 @@
                 min-height: 350px;
             }
 
+
             .hero-icon {
                 width: 65px;
                 height: 65px;
@@ -745,18 +882,20 @@
                 font-size: 1.75rem;
             }
 
+
             .championship-badge {
                 width: 45px;
                 height: 45px;
 
                 font-size: 1.1rem;
             }
+
         }
 
 
         /* =====================================================
-       ACCESSIBILITY
-    ====================================================== */
+           ACCESSIBILITY
+        ====================================================== */
 
         :focus-visible {
             outline: 3px solid var(--smhl-accent);
@@ -764,11 +903,13 @@
             outline-offset: 3px;
         }
 
+
         @media (prefers-reduced-motion: reduce) {
 
             html {
                 scroll-behavior: auto;
             }
+
 
             *,
             *::before,
@@ -776,9 +917,11 @@
                 transition-duration: 0.01ms !important;
             }
 
+
             .championship-card:hover .championship-image {
                 transform: none;
             }
+
         }
     </style>
 
@@ -790,24 +933,30 @@
 
     <!-- =====================================================
        NAVIGATION
-  ====================================================== -->
+    ====================================================== -->
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" aria-label="Main navigation">
 
         <div class="container">
 
+
             <a class="navbar-brand" href="index.html" aria-label="Smithfield Men's Hockey League home">
+
                 SMITHFIELD MEN'S HOCKEY LEAGUE
+
             </a>
 
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+
                 <span class="navbar-toggler-icon"></span>
+
             </button>
 
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
+
 
                 <ul class="navbar-nav ml-auto align-items-lg-center">
 
@@ -817,7 +966,9 @@
                     <li class="nav-item">
 
                         <a class="nav-link" href="index.html#portfolio">
+
                             Staff
+
                         </a>
 
                     </li>
@@ -828,7 +979,9 @@
                     <li class="nav-item">
 
                         <a class="nav-link" href="index.html#about">
+
                             Teams
+
                         </a>
 
                     </li>
@@ -840,30 +993,48 @@
 
                         <a class="nav-link dropdown-toggle" href="#" id="leagueDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
                             League
+
                         </a>
 
 
                         <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="leagueDropdown">
 
+
                             <a class="dropdown-item" href="players.html">
+
                                 <i class="fas fa-user mr-2"></i>
+
                                 Players
+
                             </a>
+
 
                             <a class="dropdown-item" href="substitutes.html">
+
                                 <i class="fas fa-users mr-2"></i>
+
                                 Substitutes
+
                             </a>
+
 
                             <a class="dropdown-item" href="schedule.html">
+
                                 <i class="fas fa-calendar-alt mr-2"></i>
+
                                 Schedule
+
                             </a>
 
+
                             <a class="dropdown-item" href="standings.html">
+
                                 <i class="fas fa-chart-line mr-2"></i>
+
                                 Standings
+
                             </a>
 
                         </div>
@@ -876,7 +1047,9 @@
                     <li class="nav-item">
 
                         <a class="nav-link" href="index.html#contact">
+
                             Contact
+
                         </a>
 
                     </li>
@@ -887,7 +1060,9 @@
                     <li class="nav-item">
 
                         <a class="nav-link active" href="champs.html" aria-current="page">
+
                             Champions
+
                         </a>
 
                     </li>
@@ -904,23 +1079,33 @@
 
     <!-- =====================================================
        HERO
-  ====================================================== -->
+    ====================================================== -->
 
     <header class="champions-hero">
 
+
         <div class="hero-content">
 
+
             <div class="hero-icon">
+
                 <i class="fas fa-trophy"></i>
+
             </div>
 
+
             <h1 class="hero-title">
+
                 SMHL Champions
+
             </h1>
 
+
             <p class="hero-subtitle">
+
                 Celebrating the teams and players who have competed
                 for the Smithfield Men's Hockey League championship.
+
             </p>
 
         </div>
@@ -931,18 +1116,24 @@
 
     <!-- =====================================================
        CHAMPIONSHIP SECTION
-  ====================================================== -->
+    ====================================================== -->
 
     <main>
 
+
         <section class="championship-section" aria-labelledby="championship-heading">
+
 
             <div class="container">
 
+
                 <header class="text-center">
 
+
                     <h2 id="championship-heading" class="section-heading">
+
                         Championship History
+
                     </h2>
 
 
@@ -954,17 +1145,20 @@
 
 
                     <p class="section-intro">
+
                         A look back at SMHL championship history.
                         The championship display below features the league's
                         championship image with a Matrix-inspired visual effect.
+
                     </p>
 
                 </header>
 
 
+
                 <!-- =================================================
-             CHAMPIONSHIP CARD
-        ================================================== -->
+                   CHAMPIONSHIP CARD
+                ================================================== -->
 
                 <div class="championship-card" aria-label="Smithfield Men's Hockey League championship display">
 
@@ -977,32 +1171,46 @@
 
                     <!-- Dark Overlay -->
 
-                    <div class="championship-overlay" aria-hidden="true"></div>
+                    <div class="championship-overlay" aria-hidden="true">
+                    </div>
 
 
                     <!-- Matrix Canvas -->
 
-                    <canvas id="Matrix" aria-hidden="true"></canvas>
+                    <canvas id="Matrix" aria-hidden="true">
+                    </canvas>
 
 
                     <!-- Championship Information -->
 
                     <div class="championship-info">
 
+
                         <div class="championship-badge">
+
                             <i class="fas fa-trophy"></i>
+
                         </div>
 
+
                         <h3 class="championship-title">
+
                             SMHL Champions
+
                         </h3>
 
+
                         <p class="championship-caption">
+
                             Smithfield Men's Hockey League
+
                         </p>
 
+
                         <div id="matrixStatus" class="matrix-status">
+
                             Championship mode activated
+
                         </div>
 
                     </div>
@@ -1019,11 +1227,13 @@
 
     <!-- =====================================================
        FOOTER
-  ====================================================== -->
+    ====================================================== -->
 
     <footer class="smhl-footer">
 
+
         <div class="container">
+
 
             <div class="row">
 
@@ -1032,9 +1242,13 @@
 
                 <div class="col-lg-4 mb-5 mb-lg-0">
 
+
                     <h3 class="footer-heading">
+
                         League Office
+
                     </h3>
+
 
                     <p class="footer-text mb-0">
 
@@ -1043,7 +1257,9 @@
                         Smithfield, RI 02917<br>
 
                         <a href="tel:+14012331051" class="footer-link">
+
                             (401) 233-1051
+
                         </a>
 
                     </p>
@@ -1056,8 +1272,11 @@
 
                 <div class="col-lg-4 mb-5 mb-lg-0 text-center">
 
+
                     <h3 class="footer-heading">
+
                         Follow SMHL
+
                     </h3>
 
 
@@ -1065,24 +1284,31 @@
 
 
                         <a class="social-link" href="#" aria-label="Facebook">
+
                             <i class="fab fa-facebook-f"></i>
+
                         </a>
 
 
                         <a class="social-link" href="#" aria-label="Twitter">
+
                             <i class="fab fa-twitter"></i>
+
                         </a>
 
 
                         <a class="social-link" href="#" aria-label="LinkedIn">
+
                             <i class="fab fa-linkedin-in"></i>
+
                         </a>
 
 
                         <a class="social-link" href="#" aria-label="Dribbble">
-                            <i class="fab fa-dribbble"></i>
-                        </a>
 
+                            <i class="fab fa-dribbble"></i>
+
+                        </a>
 
                     </div>
 
@@ -1094,14 +1320,20 @@
 
                 <div class="col-lg-4">
 
+
                     <h3 class="footer-heading">
+
                         About SMHL
+
                     </h3>
 
+
                     <p class="footer-text mb-0">
+
                         The Smithfield Men's Hockey League brings local
                         players together for organized and competitive
                         men's hockey.
+
                     </p>
 
                 </div>
@@ -1116,16 +1348,22 @@
 
     <!-- =====================================================
        COPYRIGHT
-  ====================================================== -->
+    ====================================================== -->
 
     <div class="copyright">
 
+
         <div class="container">
 
+
             <small>
+
                 &copy;
+
                 <span id="currentYear"></span>
+
                 Smithfield Men's Hockey League
+
             </small>
 
         </div>
@@ -1136,12 +1374,15 @@
 
     <!-- =====================================================
        SCROLL TO TOP
-  ====================================================== -->
+    ====================================================== -->
 
     <div class="scroll-to-top d-lg-none position-fixed">
 
+
         <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top" aria-label="Scroll to top">
+
             <i class="fas fa-chevron-up"></i>
+
         </a>
 
     </div>
@@ -1149,8 +1390,8 @@
 
 
     <!-- =====================================================
-       JAVASCRIPT
-  ====================================================== -->
+       JAVASCRIPT LIBRARIES
+    ====================================================== -->
 
     <script src="vendor/jquery/jquery.min.js"></script>
 
@@ -1162,15 +1403,74 @@
 
 
     <!-- =====================================================
+       NAVBAR SHRINK FIX
+    ====================================================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const mainNav =
+                document.getElementById("mainNav");
+
+
+            function updateNavbar() {
+
+                if (!mainNav) {
+                    return;
+                }
+
+
+                if (window.scrollY > 50) {
+
+                    mainNav.classList.add("navbar-shrink");
+
+                } else {
+
+                    mainNav.classList.remove("navbar-shrink");
+
+                }
+
+            }
+
+
+            /*
+             * Run once when the page loads.
+             * This also handles refreshing the page
+             * while already scrolled down.
+             */
+
+            updateNavbar();
+
+
+            /*
+             * Update navbar while scrolling.
+             */
+
+            window.addEventListener(
+                "scroll",
+                updateNavbar,
+                {
+                    passive: true
+                }
+            );
+
+        });
+
+    </script>
+
+
+    <!-- =====================================================
        EXISTING INDEX JAVASCRIPT
-  ====================================================== -->
+    ====================================================== -->
 
     <script src="./index.js"></script>
 
 
+
     <!-- =====================================================
        CHAMPIONSHIP MATRIX
-  ====================================================== -->
+    ====================================================== -->
 
     <script>
 
@@ -1213,7 +1513,9 @@
                 "0123456789";
 
             const alphabet =
-                katakana + latin + numbers;
+                katakana +
+                latin +
+                numbers;
 
 
             /* ===================================================
@@ -1250,18 +1552,10 @@
                     container.clientHeight;
 
 
-                /*
-                 * Match canvas resolution to
-                 * displayed championship card.
-                 */
-
                 canvas.width = width;
+
                 canvas.height = height;
 
-
-                /*
-                 * Calculate Matrix columns.
-                 */
 
                 columns =
                     Math.ceil(
@@ -1269,13 +1563,11 @@
                     );
 
 
-                /*
-                 * Reset Matrix drops.
-                 */
-
                 rainDrops =
                     Array.from(
-                        { length: columns },
+                        {
+                            length: columns
+                        },
                         () =>
                             Math.floor(
                                 Math.random() * -25
@@ -1307,11 +1599,6 @@
 
             function drawMatrix() {
 
-                /*
-                 * Transparent black creates
-                 * the classic Matrix trail.
-                 */
-
                 context.fillStyle =
                     "rgba(0, 0, 0, 0.055)";
 
@@ -1323,20 +1610,12 @@
                 );
 
 
-                /*
-                 * Matrix green.
-                 */
-
                 context.fillStyle =
                     "#00ff41";
 
                 context.font =
                     `${FONT_SIZE}px monospace`;
 
-
-                /*
-                 * Draw every column.
-                 */
 
                 for (
                     let i = 0;
@@ -1367,11 +1646,6 @@
                     );
 
 
-                    /*
-                     * Randomly reset columns
-                     * after reaching the bottom.
-                     */
-
                     if (
                         y > canvas.height &&
                         Math.random() > 0.975
@@ -1381,10 +1655,6 @@
 
                     }
 
-
-                    /*
-                     * Move the character downward.
-                     */
 
                     rainDrops[i]++;
 
@@ -1407,11 +1677,6 @@
                 matrixStarted = true;
 
 
-                /*
-                 * Respect reduced-motion
-                 * accessibility preference.
-                 */
-
                 const reducedMotion =
                     window.matchMedia(
                         "(prefers-reduced-motion: reduce)"
@@ -1419,15 +1684,9 @@
 
 
                 if (reducedMotion) {
-
                     return;
-
                 }
 
-
-                /*
-                 * Delay Matrix effect.
-                 */
 
                 matrixTimer =
                     window.setTimeout(
@@ -1441,10 +1700,6 @@
                                 "active"
                             );
 
-
-                            /*
-                             * Begin animation.
-                             */
 
                             matrixInterval =
                                 window.setInterval(
@@ -1478,10 +1733,6 @@
             );
 
 
-            /*
-             * Handle browser-cached images.
-             */
-
             if (
                 championshipImage.complete
             ) {
@@ -1496,6 +1747,7 @@
             ================================================== */
 
             let resizeTimeout;
+
 
             window.addEventListener(
                 "resize",
@@ -1512,12 +1764,6 @@
 
                                 resizeCanvas();
 
-
-                                /*
-                                 * Prevent the canvas from
-                                 * appearing distorted after
-                                 * a resize.
-                                 */
 
                                 if (!matrixStarted) {
 
@@ -1587,4 +1833,3 @@
 </body>
 
 </html>
-```
