@@ -303,10 +303,25 @@
       background: var(--smhl-white);
     }
 
+    /*
+      STAFF DESKTOP LAYOUT
+
+      Row 1:
+                 Michael Mouseau
+
+      Row 2:
+          Dan Nardelli     Jeff Byrnes
+
+      Row 3:
+           Bill Condon      Richard Boyes
+    */
+
     .staff-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
+      grid-template-columns: repeat(2, 280px);
+      justify-content: center;
+      column-gap: 40px;
+      row-gap: 25px;
       margin-top: 3rem;
     }
 
@@ -320,6 +335,17 @@
       transition:
         transform var(--transition),
         box-shadow var(--transition);
+    }
+
+    /*
+      Michael Mouseau is centered above
+      the other four staff members.
+    */
+
+    .staff-card:first-child {
+      grid-column: 1 / -1;
+      justify-self: center;
+      width: 280px;
     }
 
     .staff-card:hover {
@@ -386,11 +412,22 @@
       background: var(--smhl-light);
     }
 
+    /*
+      TEAMS DESKTOP LAYOUT
+
+      Row 1:
+              Inman's       Ray's
+
+      Row 2:
+             Stitch's       Phayres Flyers
+    */
+
     .teams-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, minmax(280px, 420px));
+      justify-content: center;
       gap: 30px;
-      max-width: 1100px;
+      max-width: 900px;
       margin: 3rem auto 0;
     }
 
@@ -646,12 +683,25 @@
         font-size: 0.9rem;
       }
 
+      /*
+        Staff remains two columns on tablets.
+      */
+
       .staff-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 260px);
       }
 
+      .staff-card:first-child {
+        width: 260px;
+      }
+
+      /*
+        Teams remain two columns on tablets.
+      */
+
       .teams-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(240px, 1fr));
+        max-width: 800px;
       }
 
       .nav-dropdown-menu {
@@ -698,9 +748,37 @@
         padding: 70px 0;
       }
 
-      .staff-grid,
+
+      /*
+        STAFF MOBILE
+
+        One staff member per row.
+      */
+
+      .staff-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        width: 100%;
+      }
+
+      .staff-card:first-child {
+        grid-column: auto;
+        justify-self: stretch;
+        width: 100%;
+      }
+
+
+      /*
+        TEAMS MOBILE
+
+        One team per row.
+      */
+
       .teams-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+        width: 100%;
+        max-width: 500px;
       }
 
       .team-card {
@@ -784,10 +862,11 @@
         SMITHFIELD MEN'S HOCKEY LEAGUE
       </a>
 
-
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+
         <span class="navbar-toggler-icon"></span>
+
       </button>
 
 
@@ -796,47 +875,66 @@
         <ul class="navbar-nav ml-auto align-items-lg-center">
 
           <li class="nav-item">
+
             <a class="nav-link" href="#portfolio">
               Staff
             </a>
+
           </li>
 
 
           <li class="nav-item">
+
             <a class="nav-link" href="#about">
               Teams
             </a>
+
           </li>
 
 
           <!-- League Dropdown -->
+
           <li class="nav-item dropdown nav-dropdown">
 
             <a class="nav-link dropdown-toggle" href="#" id="leagueDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
+
               League
+
             </a>
+
 
             <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="leagueDropdown">
 
               <a class="dropdown-item" href="players.html">
+
                 <i class="fas fa-user mr-2"></i>
                 Players
+
               </a>
+
 
               <a class="dropdown-item" href="substitutes.html">
+
                 <i class="fas fa-users mr-2"></i>
                 Substitutes
+
               </a>
+
 
               <a class="dropdown-item" href="schedule.html">
+
                 <i class="fas fa-calendar-alt mr-2"></i>
                 Schedule
+
               </a>
 
+
               <a class="dropdown-item" href="standings.html">
+
                 <i class="fas fa-trophy mr-2"></i>
                 Standings
+
               </a>
 
             </div>
@@ -845,16 +943,20 @@
 
 
           <li class="nav-item">
+
             <a class="nav-link" href="#contact">
               Contact
             </a>
+
           </li>
 
 
           <li class="nav-item">
+
             <a class="nav-link" href="champs.html">
               Champions
             </a>
+
           </li>
 
         </ul>
@@ -864,7 +966,6 @@
     </div>
 
   </nav>
-
 
 
   <!-- ==========================================
@@ -889,13 +990,18 @@
       <div class="hero-buttons">
 
         <a href="schedule.html" class="btn btn-primary hero-btn">
+
           <i class="fas fa-calendar-alt mr-2"></i>
           Schedule
+
         </a>
 
+
         <a href="standings.html" class="btn btn-outline-light hero-btn">
+
           <i class="fas fa-chart-line mr-2"></i>
           Standings
+
         </a>
 
       </div>
@@ -903,7 +1009,6 @@
     </div>
 
   </header>
-
 
 
   <!-- ==========================================
@@ -921,12 +1026,16 @@
         </h2>
 
         <div class="section-divider">
+
           <i class="fas fa-hockey-puck"></i>
+
         </div>
 
         <p class="section-subheading">
+
           Meet the league leadership responsible for keeping the
           Smithfield Men's Hockey League running smoothly.
+
         </p>
 
       </header>
@@ -961,7 +1070,6 @@
         </article>
 
 
-
         <!-- Dan Nardelli -->
 
         <article class="staff-card" data-toggle="modal" data-target="#portfolioModal2" tabindex="0" role="button"
@@ -986,7 +1094,6 @@
           </div>
 
         </article>
-
 
 
         <!-- Jeff Byrnes -->
@@ -1014,8 +1121,6 @@
 
         </article>
 
-        <br>
-        <br>
 
         <!-- Bill Condon -->
 
@@ -1041,7 +1146,6 @@
           </div>
 
         </article>
-
 
 
         <!-- Richard Boyes -->
@@ -1076,7 +1180,6 @@
   </section>
 
 
-
   <!-- ==========================================
        Teams Section
   =========================================== -->
@@ -1092,12 +1195,16 @@
         </h2>
 
         <div class="section-divider">
+
           <i class="fas fa-hockey-puck"></i>
+
         </div>
 
         <p class="section-subheading">
+
           Explore the teams competing in the Smithfield Men's Hockey League.
           Hover over a team to view additional information.
+
         </p>
 
       </header>
@@ -1112,11 +1219,13 @@
 
           <div class="team-card-inner">
 
+
             <div class="team-card-front">
 
               <img src="img/portfolio/Inman.jpg" class="team-image" alt="Inman's Hockey logo" loading="lazy">
 
             </div>
+
 
             <div class="team-card-back">
 
@@ -1141,18 +1250,19 @@
         </div>
 
 
-
         <!-- Ray's -->
 
         <div class="team-card" tabindex="0" aria-label="Ray's Blue Team">
 
           <div class="team-card-inner">
 
+
             <div class="team-card-front">
 
               <img src="img/portfolio/rays-hockey-logo.png" class="team-image" alt="Ray's hockey logo" loading="lazy">
 
             </div>
+
 
             <div class="team-card-back">
 
@@ -1177,18 +1287,19 @@
         </div>
 
 
-
         <!-- Stitch's -->
 
         <div class="team-card" tabindex="0" aria-label="Stitch's Red Team">
 
           <div class="team-card-inner">
 
+
             <div class="team-card-front">
 
               <img src="img/portfolio/stitch2.PNG" class="team-image" alt="Stitch's Hockey logo" loading="lazy">
 
             </div>
+
 
             <div class="team-card-back">
 
@@ -1213,18 +1324,19 @@
         </div>
 
 
-
         <!-- Phayres Flyers -->
 
         <div class="team-card" tabindex="0" aria-label="Phayres Flyers White Team">
 
           <div class="team-card-inner">
 
+
             <div class="team-card-front">
 
               <img src="img/portfolio/Flyers.png" class="team-image" alt="Phayres Flyers logo" loading="lazy">
 
             </div>
+
 
             <div class="team-card-back">
 
@@ -1247,18 +1359,25 @@
           </div>
 
         </div>
+
       </div>
+
     </div>
+
   </section>
 
-  <!-- Beer League -->
-  <section id="about" aria-labelledby="Lets Have a Drink !!-heading">
+
+  <!-- ==========================================
+       Beer League
+  =========================================== -->
+
+  <section id="beer-league" aria-labelledby="beer-league-heading">
 
     <div class="container">
 
       <header class="text-center">
 
-        <h2 id="teams-heading" class="section-heading">
+        <h2 id="beer-league-heading" class="section-heading">
           Lets grab a cold one !!
         </h2>
 
@@ -1267,11 +1386,13 @@
 
           <div class="team-card-inner">
 
+
             <div class="team-card-front">
 
               <img src="img/portfolio/beerLeague.png" class="team-image" alt="Beer League hockey logo" loading="lazy">
 
             </div>
+
 
             <div class="team-card-back">
 
@@ -1294,10 +1415,12 @@
           </div>
 
         </div>
-      </header>
-    </div>
-  </section>
 
+      </header>
+
+    </div>
+
+  </section>
 
 
   <!-- ==========================================
@@ -1315,12 +1438,16 @@
         </h2>
 
         <div class="section-divider">
+
           <i class="fas fa-envelope"></i>
+
         </div>
 
         <p class="section-subheading">
+
           Have a question about the league, teams, schedule or players?
           Send us a message.
+
         </p>
 
       </header>
@@ -1329,6 +1456,7 @@
       <div class="contact-card">
 
         <form name="sentMessage" id="contactForm" novalidate>
+
 
           <!-- Name -->
 
@@ -1398,8 +1526,10 @@
 
 
           <button type="submit" class="btn btn-primary submit-btn" id="sendMessageButton">
+
             <i class="fas fa-paper-plane mr-2"></i>
             Send Message
+
           </button>
 
         </form>
@@ -1409,7 +1539,6 @@
     </div>
 
   </section>
-
 
 
   <!-- ==========================================
@@ -1432,15 +1561,17 @@
           </h3>
 
           <p class="footer-text mb-0">
+
             101 Pleasant View Ave<br>
             Smithfield, RI 02917<br>
+
             <a href="tel:+14012331051" class="footer-link">
               (401) 233-1051
             </a>
+
           </p>
 
         </div>
-
 
 
         <!-- Social -->
@@ -1474,7 +1605,6 @@
         </div>
 
 
-
         <!-- About -->
 
         <div class="col-lg-4">
@@ -1484,8 +1614,10 @@
           </h3>
 
           <p class="footer-text mb-0">
+
             The Smithfield Men's Hockey League brings local players
             together for competitive, organized men's hockey.
+
           </p>
 
         </div>
@@ -1497,7 +1629,6 @@
   </footer>
 
 
-
   <!-- ==========================================
        Copyright
   =========================================== -->
@@ -1507,15 +1638,16 @@
     <div class="container">
 
       <span>
+
         &copy;
         <span id="currentYear"></span>
         Smithfield Men's Hockey League
+
       </span>
 
     </div>
 
   </div>
-
 
 
   <!-- ==========================================
@@ -1525,11 +1657,12 @@
   <div class="scroll-to-top d-lg-none position-fixed">
 
     <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top" aria-label="Scroll to top">
+
       <i class="fas fa-chevron-up"></i>
+
     </a>
 
   </div>
-
 
 
   <!-- ==========================================
@@ -1543,10 +1676,13 @@
 
       <div class="modal-content">
 
+
         <button type="button" class="close p-3" data-dismiss="modal" aria-label="Close">
+
           <span aria-hidden="true">
             <i class="fas fa-times"></i>
           </span>
+
         </button>
 
 
@@ -1563,8 +1699,10 @@
           </h2>
 
           <button class="btn btn-primary" type="button" data-dismiss="modal">
+
             <i class="fas fa-times mr-2"></i>
             Close
+
           </button>
 
         </div>
@@ -1574,7 +1712,6 @@
     </div>
 
   </div>
-
 
 
   <!-- ==========================================
@@ -1588,11 +1725,15 @@
 
       <div class="modal-content">
 
+
         <button type="button" class="close p-3" data-dismiss="modal" aria-label="Close">
+
           <span aria-hidden="true">
             <i class="fas fa-times"></i>
           </span>
+
         </button>
+
 
         <div class="modal-body text-center p-5">
 
@@ -1611,8 +1752,10 @@
           </p>
 
           <button class="btn btn-primary" type="button" data-dismiss="modal">
+
             <i class="fas fa-times mr-2"></i>
             Close
+
           </button>
 
         </div>
@@ -1622,7 +1765,6 @@
     </div>
 
   </div>
-
 
 
   <!-- ==========================================
@@ -1636,11 +1778,15 @@
 
       <div class="modal-content">
 
+
         <button type="button" class="close p-3" data-dismiss="modal" aria-label="Close">
+
           <span aria-hidden="true">
             <i class="fas fa-times"></i>
           </span>
+
         </button>
+
 
         <div class="modal-body text-center p-5">
 
@@ -1659,8 +1805,10 @@
           </p>
 
           <button class="btn btn-primary" type="button" data-dismiss="modal">
+
             <i class="fas fa-times mr-2"></i>
             Close
+
           </button>
 
         </div>
@@ -1670,7 +1818,6 @@
     </div>
 
   </div>
-
 
 
   <!-- ==========================================
@@ -1684,11 +1831,15 @@
 
       <div class="modal-content">
 
+
         <button type="button" class="close p-3" data-dismiss="modal" aria-label="Close">
+
           <span aria-hidden="true">
             <i class="fas fa-times"></i>
           </span>
+
         </button>
+
 
         <div class="modal-body text-center p-5">
 
@@ -1707,8 +1858,10 @@
           </p>
 
           <button class="btn btn-primary" type="button" data-dismiss="modal">
+
             <i class="fas fa-times mr-2"></i>
             Close
+
           </button>
 
         </div>
@@ -1718,7 +1871,6 @@
     </div>
 
   </div>
-
 
 
   <!-- ==========================================
@@ -1732,11 +1884,15 @@
 
       <div class="modal-content">
 
+
         <button type="button" class="close p-3" data-dismiss="modal" aria-label="Close">
+
           <span aria-hidden="true">
             <i class="fas fa-times"></i>
           </span>
+
         </button>
+
 
         <div class="modal-body text-center p-5">
 
@@ -1755,8 +1911,10 @@
           </p>
 
           <button class="btn btn-primary" type="button" data-dismiss="modal">
+
             <i class="fas fa-times mr-2"></i>
             Close
+
           </button>
 
         </div>
@@ -1766,7 +1924,6 @@
     </div>
 
   </div>
-
 
 
   <!-- ==========================================
@@ -1789,14 +1946,17 @@
   <!-- Current Year -->
 
   <script>
+
     document.getElementById("currentYear").textContent =
       new Date().getFullYear();
+
   </script>
 
 
   <!-- Keyboard support for staff cards -->
 
   <script>
+
     document.querySelectorAll(".staff-card").forEach(function (card) {
 
       card.addEventListener("keydown", function (event) {
@@ -1811,9 +1971,11 @@
       });
 
     });
+
   </script>
 
 
 </body>
 
 </html>
+
