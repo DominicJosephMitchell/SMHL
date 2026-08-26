@@ -103,9 +103,6 @@
 
             background: rgba(31, 45, 61, 0.98) !important;
 
-            /*
-             * LARGE NAVBAR AT TOP
-             */
             padding: 1.5rem 0;
 
             box-shadow:
@@ -150,7 +147,6 @@
             box-shadow:
                 0 2px 12px rgba(0, 0, 0, 0.25);
         }
-
 
         #mainNav.navbar-shrink .navbar-brand {
             font-size: 0.95rem;
@@ -256,10 +252,6 @@
         .champions-hero {
             position: relative;
 
-            /*
-             * Removed the old margin-top: 74px.
-             * Padding now accounts for the large navbar.
-             */
             margin-top: 0;
 
             min-height: 330px;
@@ -650,6 +642,55 @@
 
 
         /* =====================================================
+           CHAMPIONSHIP IMAGE GALLERY
+        ====================================================== */
+
+        .image-gallery {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            align-items: flex-start;
+
+            justify-content: center;
+
+            gap: 20px;
+
+            padding: 30px 20px;
+
+            background-color: #f4f4f4;
+        }
+
+
+        /*
+         * ALL FIVE CHAMPIONSHIP IMAGES USE THE
+         * SAME DISPLAY SIZE.
+         *
+         * object-fit: contain keeps the entire
+         * original image visible without cropping.
+         */
+
+        .image-gallery img {
+            display: block;
+
+            width: 200px;
+
+            height: 300px;
+
+            object-fit: contain;
+
+            object-position: center;
+
+            border-radius: 8px;
+
+            background-color: #ffffff;
+
+            box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+
+        /* =====================================================
            FOOTER
         ====================================================== */
 
@@ -794,10 +835,6 @@
 
         @media (max-width: 767.98px) {
 
-            /*
-             * Smaller navbar on mobile.
-             */
-
             #mainNav {
                 padding: 0.8rem 0;
             }
@@ -860,6 +897,24 @@
             }
 
 
+            /* -------------------------------------------------
+               MOBILE IMAGE GALLERY
+            -------------------------------------------------- */
+
+            .image-gallery {
+                gap: 15px;
+
+                padding: 25px 15px;
+            }
+
+
+            .image-gallery img {
+                width: 200px;
+
+                height: 300px;
+            }
+
+
             .social-links {
                 justify-content: flex-start;
             }
@@ -887,6 +942,19 @@
                 height: 45px;
 
                 font-size: 1.1rem;
+            }
+
+
+            /*
+             * On very small screens, make the images
+             * slightly narrower while keeping the
+             * same 2:3 proportion.
+             */
+
+            .image-gallery img {
+                width: 160px;
+
+                height: 240px;
             }
 
         }
@@ -1146,6 +1214,7 @@
                     <p class="section-intro">
 
                         A look back at SMHL Championship Teams history.
+
                     </p>
 
                 </header>
@@ -1205,8 +1274,8 @@
 
                         <div id="matrixStatus" class="matrix-status">
 
-<!--                             Championship mode activated
- -->
+                            <!-- Championship mode activated -->
+
                         </div>
 
                     </div>
@@ -1218,133 +1287,37 @@
         </section>
 
 
-        <!-- This is the section holding your pictures -->
-        <section class="image-gallery">
 
-            <!-- IMAGE 1-->
+        <!-- =====================================================
+           CHAMPIONSHIP IMAGE GALLERY
+        ====================================================== -->
 
-            <!-- Picture 1: Using a local image file -->
-            <img src="img/portfolio/Champs 2021.PNG" alt="SMHL" loading="lazy">
+        <section class="image-gallery" aria-label="SMHL championship photographs">
 
-            <!-- Picture 2: Using an online web URL -->
-            <!--             <img src="https://picsum.photos" alt="Random placeholder image" loading="lazy">
- -->
-            <style>
-                /* Optional: Styles to layout your images neatly */
-                .image-gallery {
-                    display: flex;
-                    gap: 15px;
-                    justify-content: center;
-                    padding: 20px;
-                    background-color: #f4f4f4;
-                }
 
-                .image-gallery img {
-                    width: 200px;
-                    height: auto;
-                    border-radius: 8px;
-                }
-            </style>
+            <!-- IMAGE 1 -->
 
-            <!-- IMAGE 2-->
+            <img src="img/portfolio/Champs 2021.PNG" alt="SMHL Champions 2021" loading="lazy">
 
-            <!-- Picture 1: Using a local image file -->
-            <img src="img/portfolio/Gingell 2022.jpg" alt="SMHL" loading="lazy">
 
-            <!-- Picture 2: Using an online web URL -->
-            <!--             <img src="https://picsum.photos" alt="Random placeholder image" loading="lazy">
-                         -->
-            <style>
-                /* Optional: Styles to layout your images neatly */
-                .image-gallery {
-                    display: flex;
-                    gap: 15px;
-                    justify-content: center;
-                    padding: 20px;
-                    background-color: #f4f4f4;
-                }
+            <!-- IMAGE 2 -->
 
-                .image-gallery img {
-                    width: 200px;
-                    height: auto;
-                    border-radius: 8px;
-                }
-            </style>
+            <img src="img/portfolio/Gingell 2022.jpg" alt="SMHL Champions 2022" loading="lazy">
 
-            <!-- IMAGE 3-->
 
-            <!-- Picture 1: Using a local image file -->
-            <img src="img/portfolio/NY HOCKEY 2025.jpg" alt="SMHL" loading="lazy">
+            <!-- IMAGE 3 -->
 
-            <!-- Picture 2: Using an online web URL -->
-            <!--             <img src="https://picsum.photos" alt="Random placeholder image" loading="lazy">
-             -->
-            <style>
-                /* Optional: Styles to layout your images neatly */
-                .image-gallery {
-                    display: flex;
-                    gap: 15px;
-                    justify-content: center;
-                    padding: 20px;
-                    background-color: #f4f4f4;
-                }
+            <img src="img/portfolio/NY HOCKEY 2025.png" alt="SMHL Champions 2025" loading="lazy">
 
-                .image-gallery img {
-                    width: 200px;
-                    height: auto;
-                    border-radius: 8px;
-                }
-            </style>
 
-            <!-- IMAGE 4-->
+            <!-- IMAGE 4 -->
 
-            <!-- Picture 1: Using a local image file -->
-            <img src="img/portfolio/Champs 2023.PNG" alt="SMHL" loading="lazy">
+            <img src="img/portfolio/Champs 2023.PNG" alt="SMHL Champions 2023" loading="lazy">
 
-            <!-- Picture 2: Using an online web URL -->
-            <!--             <img src="https://picsum.photos" alt="Random placeholder image" loading="lazy">
-                                     -->
-            <style>
-                /* Optional: Styles to layout your images neatly */
-                .image-gallery {
-                    display: flex;
-                    gap: 15px;
-                    justify-content: center;
-                    padding: 20px;
-                    background-color: #f4f4f4;
-                }
 
-                .image-gallery img {
-                    width: 200px;
-                    height: auto;
-                    border-radius: 8px;
-                }
-            </style>
+            <!-- IMAGE 5 -->
 
-            <!-- IMAGE 5-->
-
-            <!-- Picture 1: Using a local image file -->
-            <img src="img/portfolio/Champs 1901.PNG" alt="SMHL" loading="lazy">
-
-            <!-- Picture 2: Using an online web URL -->
-            <!--             <img src="https://picsum.photos" alt="Random placeholder image" loading="lazy">
-                         -->
-            <style>
-                /* Optional: Styles to layout your images neatly */
-                .image-gallery {
-                    display: flex;
-                    gap: 15px;
-                    justify-content: center;
-                    padding: 20px;
-                    background-color: #f4f4f4;
-                }
-
-                .image-gallery img {
-                    width: 200px;
-                    height: auto;
-                    border-radius: 8px;
-                }
-            </style>
+            <img src="img/portfolio/Champs 1901.PNG" alt="SMHL Champions" loading="lazy">
 
 
         </section>
@@ -1530,6 +1503,7 @@
     <script src="js/freelancer.min.js"></script>
 
 
+
     <!-- =====================================================
        NAVBAR SHRINK FIX
     ====================================================== -->
@@ -1562,18 +1536,8 @@
             }
 
 
-            /*
-             * Run once when the page loads.
-             * This also handles refreshing the page
-             * while already scrolled down.
-             */
-
             updateNavbar();
 
-
-            /*
-             * Update navbar while scrolling.
-             */
 
             window.addEventListener(
                 "scroll",
@@ -1586,6 +1550,7 @@
         });
 
     </script>
+
 
 
     <!-- =====================================================
